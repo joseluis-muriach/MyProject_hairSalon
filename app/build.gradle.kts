@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.myproject_hairsalon"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.myproject_hairsalon"
