@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,6 +20,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myproject_hairsalon.R
@@ -36,7 +38,8 @@ fun getTypesOfFaces(): List<TypesOfFaces> {
         TypesOfFaces(
             R.drawable.alargado,
             "ROSTRO ALARGADO",
-            "AQUI FALTA"
+            "Se da cuando la frente es tan ancha como la mandibula y, además el rostro es " +
+                    "alargado pero fino"
         ),
         TypesOfFaces(
             R.drawable.rectangular,
@@ -48,19 +51,19 @@ fun getTypesOfFaces(): List<TypesOfFaces> {
             R.drawable.redondo,
             "ROSTRO REDONDO",
             "Se da cuando la longitud y el ancho de la cara son " +
-                    "aproximadamente iguales, con mejillas mas llenas y una" +
+                    "aproximadamente iguales, con mejillas mas llenas y una " +
                     "mandibula redondeada"
         ),
         TypesOfFaces(
             R.drawable.cuadrado,
             "ROSTRO CUADRADO",
-            "Se da cuando la frente, las mejillas y la mandibula tienen líneas" +
+            "Se da cuando la frente, las mejillas y la mandibula tienen líneas " +
                     "similares en términos de anchura, creando una apariencia angular"
         ),
         TypesOfFaces(
             R.drawable.pera_triangular,
             "ROSTRO PERA/ROSTRO TRIANGULAR",
-            "se da cuando la frente es estrecha y la mandíbula es ancha, creando una forma " +
+            "Se da cuando la frente es estrecha y la mandíbula es ancha, creando una forma " +
                     "triangular invertida"
         ),
         TypesOfFaces(
@@ -72,18 +75,20 @@ fun getTypesOfFaces(): List<TypesOfFaces> {
         TypesOfFaces(
             R.drawable.triangulo_v,
             "R. TRIÁNGULO INVERTIDO",
-            "La frente es más ancha que la mandíbula, creando una forma triangular invertida."
+            "Se da cuando la frente es más ancha que la mandíbula, creando una forma " +
+                    "triangular invertida."
         ),
         TypesOfFaces(
             R.drawable.diamante,
             "ROSTRO DIAMANTE",
-            "La frente y la barbilla son más estrechas que las mejillas, " +
+            "Se da cuando la frente y la barbilla son más estrechas que las mejillas, " +
                     "con pómulos prominentes."
         ),
         TypesOfFaces(
             R.drawable.ovalado,
             "ROSTRO OVALADO",
-            "La frente es ligeramente más ancha que la barbilla, con una forma suave y curvada."
+            "Se da cuando la frente es ligeramente más ancha que la barbilla, " +
+                    "con una forma suave y curvada."
         ),
     )
 }
@@ -99,18 +104,24 @@ fun ItemPhotoAndText(typesOfFaces: TypesOfFaces) {
         Image(
             painter = painterResource(id = typesOfFaces.photo),
             contentDescription = "Photo of the faces",
-            modifier = Modifier.weight(1f)
+            modifier = Modifier.weight(1f).size(130.dp)
                 .padding(10.dp)
         )
         Column(
-            modifier = Modifier.weight(2f)
+            modifier = Modifier.weight(2.5f)
                 .padding(10.dp)
         ){
             Text(
                 text = typesOfFaces.text,
-                fontStyle = FontStyle.Normal //tengo que cambiarlo
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(bottom = 5.dp)
+                )
+
+            Text(
+                text = typesOfFaces.descripción,
+                fontSize = 15.sp
+
             )
-            Text(text = typesOfFaces.descripción)
         }
     }
 }

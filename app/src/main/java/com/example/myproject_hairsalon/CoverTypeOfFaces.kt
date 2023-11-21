@@ -26,14 +26,14 @@ fun CoverTypesOfFaces(){
     ) {
         Row(
             Modifier.fillMaxWidth()
-                .padding(top = 15.dp)
-                .background(Color(0xFFFDF1D1)),
+                .padding(top = 20.dp)
+                .background(Color(0xFFF6CFFF)),
             horizontalArrangement = Arrangement.Center,
 
         ) {
             Text(
                 text = "TYPE OF FACES",
-                fontSize = 20.sp,
+                fontSize = 30.sp,
                 fontFamily = fontCourgette
             )
         }
