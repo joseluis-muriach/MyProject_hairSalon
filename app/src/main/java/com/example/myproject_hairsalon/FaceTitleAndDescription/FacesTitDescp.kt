@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myproject_hairsalon.R
+import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
 //Data base
 data class itemFaceTitDescp(
@@ -109,7 +110,8 @@ fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp) {
             Text(
                 text = typesOfFaces.text,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(bottom = 5.dp)
+                modifier = Modifier.padding(bottom = 5.dp),
+                fontFamily = fontCourgette
                 )
 
             Text(
