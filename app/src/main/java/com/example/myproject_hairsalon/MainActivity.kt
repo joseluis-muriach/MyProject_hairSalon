@@ -1,5 +1,6 @@
 package com.example.myproject_hairsalon
 
+import CoverTypeFace
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -10,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,8 +26,11 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    CoverTypeFace()
-                    //CoverTypesOfFaces()
+                    val navController = rememberNavController()
+                    NavHost(navController = navController, startDestination = "CoverTypeFace") {
+                        composable("CoverTypeFace") { CoverTypeFace(navController) }
+                        composable("CoverTypesOfFaces") { CoverTypesOfFaces(navController) }
+                    }
                 }
             }
         }

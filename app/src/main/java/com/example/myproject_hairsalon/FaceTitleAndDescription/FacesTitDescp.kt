@@ -5,6 +5,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -18,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myproject_hairsalon.FloatingButtomB
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
@@ -25,7 +27,7 @@ import com.example.myproject_hairsalon.ui.theme.fontCourgette
 data class itemFaceTitDescp(
     @DrawableRes val photo: Int,
     val text: String,
-    val descripción: String
+    val description: String
 )
 
 //List of Photo, title and description
@@ -115,7 +117,7 @@ fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp) {
                 )
 
             Text(
-                text = typesOfFaces.descripción,
+                text = typesOfFaces.description,
                 fontSize = 15.sp
             )
         }
