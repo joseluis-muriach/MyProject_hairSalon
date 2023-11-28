@@ -1,5 +1,6 @@
 package com.example.myproject_hairsalon.FaceTitleAndDescription
 
+import android.net.Uri
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myproject_hairsalon.FloatingButtomB
 import com.example.myproject_hairsalon.R
+import com.example.myproject_hairsalon.VideoPlayer
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
 //Data base
@@ -106,7 +108,8 @@ fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp) {
                 .padding(10.dp)
         )
         Column(
-            modifier = Modifier.weight(2.5f)
+            modifier = Modifier
+                .weight(2.5f)
                 .padding(10.dp)
         ){
             Text(

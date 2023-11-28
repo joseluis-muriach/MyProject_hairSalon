@@ -20,7 +20,7 @@ import com.example.myproject_hairsalon.ui.theme.fontCourgette
 fun FloatingButtom(navController: NavController){
     FloatingActionButton(
         onClick = {
-            navController.navigate("CoverTypesOfFaces")
+            navController.navigate("CoverTypeFace")
             // Handle click action here
             // For example, show a snackbar
             // SnackbarHostState.current.showSnackbar("FAB Clicked")
