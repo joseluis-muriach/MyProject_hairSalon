@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
-import androidx.compose.ui.Alignment
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
@@ -32,6 +31,11 @@ import com.example.myproject_hairsalon.WhatIsYourTypeFace.Face
 import com.example.myproject_hairsalon.WhatIsYourTypeFace.Face.Companion.calculateYourFace
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CoverTypeFace(navController: NavController) {
@@ -48,13 +52,14 @@ fun CoverTypeFace(navController: NavController) {
     ) {
         item {
             Text(
-                text = "¿Cuál es tu tipo de cara?",
+                text = "What's your face type?",
                 fontSize = 30.sp,
                 fontFamily = fontCourgette,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(top = 20.dp)
                     .background(Color(0xFFF6CFFF))
+                    //.align(Alignment.CenterHorizontally) -> tengo problemas con este
             )
 
             Spacer(modifier = Modifier.padding(15.dp))
@@ -167,7 +172,8 @@ fun CoverTypeFace(navController: NavController) {
                 modifier = Modifier.padding(10.dp),
                 style = TextStyle(
                     fontSize = 20.sp
-                )
+                ),
+                fontFamily = fontCourgette
             )
 
             Box {

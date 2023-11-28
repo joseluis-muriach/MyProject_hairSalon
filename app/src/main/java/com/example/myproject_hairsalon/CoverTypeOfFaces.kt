@@ -29,6 +29,7 @@ fun CoverTypesOfFaces(navController: NavController) {
     Scaffold(
         floatingActionButton = { FloatingButtomB() }
     ) {
+        //Aquí no ponemos nada para que el floating haga ese efecto de transparencia
     }
     Column(
         Modifier.fillMaxSize(),

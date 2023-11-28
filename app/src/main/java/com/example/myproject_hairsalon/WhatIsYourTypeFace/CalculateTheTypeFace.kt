@@ -18,58 +18,45 @@ data class Face(
 ) {
     companion object {
         fun calculateYourFace(face: Face): String {
-            var result = ""
-            var picture = 0
+            val result: String
 
-            if (esAlargado(face)) {
-                result = "Your face type is LONG"
-                picture = R.drawable.alargado
+            result = when {
+                esAlargado(face) -> {
+                    "Your face type is LONG"
+                }
+                esRectangular(face) -> {
+                    "Your face type is RECTANGULAR"
+                }
+                esCuadrado(face) -> {
+                    "Your face type is SQUARE"
+                }
+                esTriangular(face) -> {
+                    "Your face type is TRIANGULAR"
+                }
+                esCorazon(face) -> {
+                    "Your face type is HEART"
+                }
+                esTriangularInvert(face) -> {
+                    "Your face type is 'V'"
+                }
+                esDiamante(face) -> {
+                    "Your face type is DIAMOND"
+                }
+                esRedondo(face) -> {
+                    "Your face type is ROUND"
+                }
+                esOvalado(face) -> {
+                    "Your face type is OVAL"
+                }
+                else -> {
+                    "Unknown face type"
+                }
             }
-
-            if (esRectangular(face)) {
-                result = "Your face type is RECTANGULAR"
-                picture = R.drawable.rectangular
-            }
-
-            if (esCuadrado(face)) {
-                result = "Your face type is SQUARE"
-                picture = R.drawable.cuadrado
-            }
-
-            if (esTriangular(face)) {
-                result = "Your face type is TRIANGULAR"
-                picture = R.drawable.pera_triangular
-            }
-
-            if (esCorazon(face)) {
-                result = "Your face type is HEART"
-                picture = R.drawable.corazon
-            }
-
-            if (esTriangularInvert(face)) {
-                result = "Your face type is 'V'"
-                picture = R.drawable.triangulo_v
-            }
-
-            if (esDiamante(face)) {
-                result = "Your face type is DIAMOND"
-                picture = R.drawable.diamante
-            }
-
-            if (esRedondo(face)) {
-                result = "Your face type is ROUND"
-                picture = R.drawable.redondo
-            }
-
-            if (esOvalado(face)) {
-                result = "Your face type is OVAL"
-                picture = R.drawable.ovalado
-            }
-
-            return "$picture \n $result"
+            return result
         }
     }
 }
+
 
 fun esAlargado(
     face: Face
@@ -117,6 +104,7 @@ fun esCuadrado( //Este deberia ser parecido a, b, c y d
     return result
 }
 
+
 fun esTriangular(
     face: Face
 ): Boolean {
@@ -127,6 +115,7 @@ fun esTriangular(
     }
     return result
 }
+
 
 fun esCorazon(
     face: Face
@@ -141,7 +130,6 @@ fun esCorazon(
     }
     return result
 }
-
 
 fun esTriangularInvert(
     face: Face
@@ -168,6 +156,7 @@ fun esDiamante(
     return result
 }
 
+
 fun esRedondo(
     face: Face
 ): Boolean {
@@ -186,6 +175,7 @@ fun esRedondo(
     return result
 }
 
+
 fun esOvalado(face: Face): Boolean {
     val range = 0.6
     val minimumRangeA = face.pointA - range
@@ -201,4 +191,3 @@ fun esOvalado(face: Face): Boolean {
     }
     return result
 }
-
