@@ -18,9 +18,8 @@ data class Face(
 ) {
     companion object {
         fun calculateYourFace(face: Face): String {
-            val result: String
 
-            result = when {
+            val result: String = when {
                 esAlargado(face) -> {
                     "Your face type is LONG"
                 }
