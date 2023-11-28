@@ -30,7 +30,6 @@ import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.WhatIsYourTypeFace.Face
 import com.example.myproject_hairsalon.WhatIsYourTypeFace.Face.Companion.calculateYourFace
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*

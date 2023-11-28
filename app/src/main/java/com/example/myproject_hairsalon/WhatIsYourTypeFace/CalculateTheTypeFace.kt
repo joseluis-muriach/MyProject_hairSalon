@@ -61,16 +61,16 @@ data class Face(
 fun esAlargado(
     face: Face
 ): Boolean {
-    val calculateRange = face.pointD / 3
     var result = false
+    val comparison = face.pointE * 3
 
-    if (face.pointE > calculateRange) {
+    if (comparison > face.pointD) {
         result = true
     }
     return result
 }
 
-fun esRectangular(
+fun esRectangular( //"E" tiene que se mayor a 1/3 de "D" para que se cumpla esta condición
     face: Face
 ): Boolean {
     val range = 0.6
@@ -78,9 +78,11 @@ fun esRectangular(
     val maximumRange = face.pointA + range
     var result = false
 
-    if (face.pointB in minimumRange..maximumRange) { //Que este entre el rango de menos o mas
+    if (face.pointB in minimumRange..maximumRange) {//Que este entre el rango de menos o mas
         if (face.pointC in minimumRange..maximumRange) {
-                result = true
+            if (face.pointD > face.pointB) {
+                    result = true
+            }
         }
     }
     return result
@@ -96,7 +98,7 @@ fun esCuadrado( //Este deberia ser parecido a, b, c y d
 
     if (face.pointB in minimumRange..maximumRange) { //Que este entre el rango de menos o mas
         if (face.pointC in minimumRange..maximumRange) {
-            if (face.pointD < face.pointA) {
+            if (face.pointD in minimumRange..maximumRange) {
                 result = true
             }
         }
@@ -161,15 +163,11 @@ fun esRedondo(
     face: Face
 ): Boolean {
     val range = 0.6
-    val minimumRangeA = face.pointA - range
-    val maximumRangeA = face.pointA + range
     val maximumRangeB = face.pointB + range
-    val minimumRangeB = face.pointB + range
+    val minimumRangeB = face.pointB - range
     var result = false
 
-    if (face.pointC in minimumRangeA..maximumRangeA &&
-        face.pointD in minimumRangeB..maximumRangeB
-    ) {
+    if (face.pointD in minimumRangeB..maximumRangeB){
         result = true
     }
     return result
