@@ -21,8 +21,11 @@ import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -76,8 +79,11 @@ fun FloatingButton(navController: NavHostController, url: String) {
     )
 
     val colors = listOf(
-        Color(0xFFFEFFFF),
-        Color(0xFF080809),
+        Color(0xFFAB41F8),
+        Color(0xFFE91E63),
+        Color(0xFFFF5722),
+        Color(0xFFFFC107),
+        //Color(0xFFFF5722),
     )
     val gradientBrush by remember { mutableStateOf(
         Brush.horizontalGradient(
@@ -108,19 +114,12 @@ fun FloatingButton(navController: NavHostController, url: String) {
         shape = CircleShape
     ) {
         Icon(
-            imageVector = Icons.Default.Create,
-            contentDescription = null,
-            tint = Color.Black
-        )
+            imageVector = Icons.Default.FavoriteBorder,
+            contentDescription = "Icono",
+            tint = Color.Black,
+            modifier = Modifier.size(25.dp),
 
-//        ClickableText(
-//            text = { AnnotatedString("Abrir Google") },
-//            onClick = { offset ->
-//                if (offset < "Abrir Google".length) {
-//                    openUrlInBrowser(url)
-//                }
-//            }
-//        )
+            )
     }
 }
 
