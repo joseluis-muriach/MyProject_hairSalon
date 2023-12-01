@@ -16,7 +16,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyProject_hairSalonTheme {
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "VideoTypesOfFaces") {
+                NavHost(navController = navController, startDestination = "MainCover") {
+                    composable("MainCover") {MainCover(navController)}
                     composable("CoverTypeFace") { CoverTypesOfFaces(navController) }
                     composable("VideoTypesOfFaces") { VideoHowCalculateMyFace(navController) }
                     composable("HowCalculateFace") { HowCalculateFace(navController) }
