@@ -1,4 +1,4 @@
-package com.example.myproject_hairsalon
+package com.example.myproject_hairsalon.AllMains
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController

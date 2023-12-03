@@ -6,10 +6,12 @@ import androidx.activity.compose.setContent
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.myproject_hairsalon.AllMains.MainCalculateMyFace
+import com.example.myproject_hairsalon.AllMains.MainCover
+import com.example.myproject_hairsalon.AllMains.MainHowCalcFace
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.AllTypesFaceAndDescrip
-import com.example.myproject_hairsalon.MainCover.MainCoverVertical
-import com.example.myproject_hairsalon.MainCover.MainCoverLandScape
-import com.example.myproject_hairsalon.CalculateMyFace.CalculateMyFace
+import com.example.myproject_hairsalon.Cover.MainCoverVertical
+import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
 
 class MainProject : ComponentActivity() {

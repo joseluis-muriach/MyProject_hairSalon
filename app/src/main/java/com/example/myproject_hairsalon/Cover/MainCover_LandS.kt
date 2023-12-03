@@ -1,4 +1,4 @@
-package com.example.myproject_hairsalon.MainCover
+package com.example.myproject_hairsalon.Cover
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

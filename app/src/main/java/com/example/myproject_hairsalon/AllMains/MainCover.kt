@@ -1,11 +1,11 @@
-package com.example.myproject_hairsalon
+package com.example.myproject_hairsalon.AllMains
 
 import android.content.res.Configuration
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.navigation.NavHostController
-import com.example.myproject_hairsalon.MainCover.MainCoverLandScape
-import com.example.myproject_hairsalon.MainCover.MainCoverVertical
+import com.example.myproject_hairsalon.Cover.MainCoverLandScape
+import com.example.myproject_hairsalon.Cover.MainCoverVertical
 
 @Composable
 fun MainCover(navController: NavHostController){
