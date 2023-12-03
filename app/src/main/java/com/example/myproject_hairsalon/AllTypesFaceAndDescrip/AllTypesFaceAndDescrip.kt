@@ -1,4 +1,4 @@
-package com.example.myproject_hairsalon
+package com.example.myproject_hairsalon.AllTypesFaceAndDescrip
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
@@ -17,14 +17,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.myproject_hairsalon.FaceTitleAndDescription.LazyColumItems
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.FaceTitleAndDescription.LazyColumItems
 import com.example.myproject_hairsalon.Items.MyTopAppBarC
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
+/*In vertical mode*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CoverTypesOfFaces(navController: NavController) {
+fun AllTypesFaceAndDescrip(navController: NavController) {
     Scaffold(
         topBar = { MyTopAppBarC(navController) }
     ) {

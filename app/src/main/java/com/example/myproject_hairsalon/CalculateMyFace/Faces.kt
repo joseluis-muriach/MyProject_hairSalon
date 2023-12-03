@@ -1,9 +1,4 @@
-package com.example.myproject_hairsalon.WhatIsYourTypeFace
-
-import androidx.compose.runtime.Composable
-import com.example.myproject_hairsalon.FaceTitleAndDescription.getTypesOfFaces
-import com.example.myproject_hairsalon.FaceTitleAndDescription.itemFaceTitDescp
-import com.example.myproject_hairsalon.R
+package com.example.myproject_hairsalon.CalculateMyFace
 
 /*
 Here, in this windows, we are going to make a function that calculate the type of face of the user
@@ -17,7 +12,7 @@ data class Face(
     var pointE: Float
 ) {
     companion object {
-        fun calculateYourFace(face: Face): String {
+        fun Faces(face: Face): String {
 
             val result: String = when {
                 esAlargado(face) -> {

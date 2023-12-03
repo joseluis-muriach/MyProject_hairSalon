@@ -1,4 +1,4 @@
-package com.example.myproject_hairsalon.FaceTitleAndDescription
+package com.example.myproject_hairsalon.AllTypesFaceAndDescrip.FaceTitleAndDescription
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
@@ -128,7 +128,7 @@ fun LazyColumItems() {
     LazyColumn(
         verticalArrangement = Arrangement.Center
     ){
-        items(getTypesOfFaces()) {allItems ->
+        items(getTypesOfFaces()) { allItems ->
             ItemPhotoAndText(
                 typesOfFaces = allItems
             )

@@ -66,7 +66,7 @@ fun MainCoverVertical(navController: NavHostController) {
 
                 ) {
                 Button(
-                    onClick = { navController.navigate("VideoTypesOfFaces") },
+                    onClick = { navController.navigate("VideoHowCalculateMyFace") },
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(CenterVertically)
@@ -91,7 +91,7 @@ fun MainCoverVertical(navController: NavHostController) {
                 verticalAlignment = CenterVertically
             ) {
                 Button(
-                    onClick = { navController.navigate("HowCalculateFace") },
+                    onClick = { navController.navigate("MainCalculateMyFace") },
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF)),
                     modifier = Modifier
                         .fillMaxWidth()

@@ -26,7 +26,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.example.myproject_hairsalon.Items.FloatingButton
 import com.example.myproject_hairsalon.R
@@ -73,7 +72,7 @@ fun MainCoverLandScape(navController: NavHostController) {
 
                         ) {
                         Button(
-                            onClick = { navController.navigate("VideoTypesOfFaces") },
+                            onClick = { navController.navigate("VideoCalculateTypeFace_LS") },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .align(Alignment.CenterVertically)
@@ -101,7 +100,7 @@ fun MainCoverLandScape(navController: NavHostController) {
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Button(
-                            onClick = { navController.navigate("HowCalculateFace") },
+                            onClick = { navController.navigate("MainCalculateMyFace") },
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF)),
                             modifier = Modifier
                                 .fillMaxWidth()

@@ -1,8 +1,7 @@
-package com.example.myproject_hairsalon.WhatIsYourTypeFace
+package com.example.myproject_hairsalon.CalculateMyFace
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -29,7 +28,7 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
-import com.example.myproject_hairsalon.WhatIsYourTypeFace.Face.Companion.calculateYourFace
+import com.example.myproject_hairsalon.CalculateMyFace.Face.Companion.Faces
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.Scaffold
 import com.example.myproject_hairsalon.Items.MyTopAppBarB
@@ -37,7 +36,7 @@ import com.example.myproject_hairsalon.Items.MyTopAppBarB
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HowCalculateFace(navController: NavController) {
+fun CalculateMyFace(navController: NavController) {
     var pointA by remember { mutableStateOf("") }
     var pointB by remember { mutableStateOf("") }
     var pointC by remember { mutableStateOf("") }
@@ -157,7 +156,7 @@ fun HowCalculateFace(navController: NavController) {
                                     pointD.toFloat(),
                                     pointE.toFloat()
                                 )
-                            textResult = calculateYourFace(userFace)
+                            textResult = Faces(userFace)
 
                             pointA = ""
                             pointB = ""
@@ -180,7 +179,7 @@ fun HowCalculateFace(navController: NavController) {
                     }
 
                     Button(
-                        onClick = { navController.navigate("VideoTypesOfFaces") },
+                        onClick = { navController.navigate("MainHowCalcFace") },
                         modifier = Modifier
                             .padding(10.dp)
                             .weight(1f),
