@@ -10,19 +10,38 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.ModalDrawerSheet
+import androidx.compose.material3.ModalNavigationDrawer
+import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,7 +49,9 @@ import androidx.navigation.NavHostController
 import com.example.myproject_hairsalon.Items.FloatingButton
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainCoverVertical(navController: NavHostController) {
     Column(
@@ -86,8 +107,10 @@ fun MainCoverVertical(navController: NavHostController) {
                     .fillMaxWidth()
                     .padding(start = 35.dp, end = 35.dp, bottom = 7.dp)
                     .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
-                    .border(1.dp, Color.Black,
-                        RoundedCornerShape(50.dp)),
+                    .border(
+                        1.dp, Color.Black,
+                        RoundedCornerShape(50.dp)
+                    ),
                 verticalAlignment = CenterVertically
             ) {
                 Button(
@@ -136,16 +159,81 @@ fun MainCoverVertical(navController: NavHostController) {
                 }
             }
 
-            Box(
-                Modifier
-                    .padding(top = 16.dp)
-                    .fillMaxSize(),
-                contentAlignment = Alignment.BottomEnd
+            Row(
+                Modifier.fillMaxWidth()
             ) {
-                FloatingButton(
-                    navController, "https://instagram.com/andrea.laslo?igshid=OGQ5ZDc2ODk2ZA=="
-                )
+                Box(
+                    Modifier
+                        .padding(top = 16.dp),
+                        //.fillMaxSize(),
+                    contentAlignment = Alignment.BottomEnd
+                ) {
+                    FloatingButton(
+                        navController, "https://instagram.com/andrea.laslo?igshid=OGQ5ZDc2ODk2ZA=="
+                    )
+                }
+
+                Box(
+                    Modifier
+                        .padding(top = 16.dp),
+                        //.fillMaxSize(),
+                    contentAlignment = Alignment.BottomStart
+                ){
+                    IconButton(
+                        onClick = {}) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = null,
+                            tint = Color.Black
+                        )
+                    }
+                }
             }
         }
     }
+
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+    val items = listOf(
+        Pair(Icons.Default.PlayArrow, "How calculate my type face"),
+        Pair(Icons.Default.Create, "Calculate your type face"),
+        Pair(Icons.Default.AccountCircle, "Types faces")
+    )
+    val selectedItem = remember {
+        mutableStateOf(items[0])
+    }
+
+    ModalNavigationDrawer(drawerState = drawerState,
+        drawerContent = {
+            ModalDrawerSheet {
+                Image(
+                    painter = painterResource(id = R.drawable.portadapelu),
+                    contentDescription = "Image portada",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp),
+                    contentScale = ContentScale.Crop
+                )
+
+                Spacer(modifier = Modifier.height(12.dp))
+
+                items.forEach { (itemIcon, itemName) ->
+                    NavigationDrawerItem(
+                        icon = { Icon(itemIcon, contentDescription = null) },
+                        label = {
+                            Text(text = itemName,
+                                fontFamily = fontCourgette,)
+                                },
+                        selected = itemIcon == selectedItem.value.first,
+                        onClick = {
+                            scope.launch { drawerState.close() }
+                            selectedItem.value = Pair(itemIcon, itemName)
+                            // Haz algo con el nombre personalizado (itemName) o ícono (itemIcon)
+                            navController.navigate(itemIcon.name)
+                        }
+                    )
+                }
+            }
+        }, content = {}
+    )
 }

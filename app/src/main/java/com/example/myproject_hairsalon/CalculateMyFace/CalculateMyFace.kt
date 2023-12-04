@@ -30,7 +30,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import com.example.myproject_hairsalon.CalculateMyFace.Face.Companion.Faces
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.text.input.KeyboardType
 import com.example.myproject_hairsalon.Items.MyTopAppBarB
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -91,7 +93,8 @@ fun CalculateMyFace(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(5.dp),
-                    singleLine = true
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
 
                 OutlinedTextField(
@@ -103,9 +106,9 @@ fun CalculateMyFace(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(5.dp),
-                    singleLine = true
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
-
                 OutlinedTextField(
                     value = pointC,
                     onValueChange = { pointC = it },
@@ -115,7 +118,8 @@ fun CalculateMyFace(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(5.dp),
-                    singleLine = true
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
 
                 OutlinedTextField(
@@ -127,7 +131,8 @@ fun CalculateMyFace(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(5.dp),
-                    singleLine = true
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
 
                 OutlinedTextField(
@@ -139,7 +144,8 @@ fun CalculateMyFace(navController: NavController) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(5.dp),
-                    singleLine = true
+                    singleLine = true,
+                    keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
                 )
                 //End the OULINEDTEXT
 
