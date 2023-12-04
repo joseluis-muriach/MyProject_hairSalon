@@ -39,11 +39,8 @@ data class Face(
                 esRedondo(face) -> {
                     "Your face type is ROUND"
                 }
-                esOvalado(face) -> {
-                    "Your face type is OVAL"
-                }
                 else -> {
-                    "Unknown face type"
+                    "Your face type is OVAL"
                 }
             }
             return result
@@ -132,7 +129,7 @@ fun esTriangularInvert(
 ): Boolean {
     var result = false
 
-    if (face.pointA < face.pointB && face.pointB < face.pointC) {
+    if (face.pointA > face.pointB && face.pointB > face.pointC) {
         result = true
     }
     return result
@@ -146,7 +143,7 @@ fun esDiamante(
     //val maximumRange = face.pointA + range
     var result = false
 
-    if (face.pointA > face.pointC && face.pointB > face.pointC) {
+    if (face.pointA < face.pointB && face.pointC < face.pointB) {
         result = true
     }
     return result
@@ -168,7 +165,7 @@ fun esRedondo(
 }
 
 
-fun esOvalado(face: Face): Boolean {
+/*fun esOvalado(face: Face): Boolean {
     val range = 0.6
     val minimumRangeA = face.pointA - range
     val maximumRangeA = face.pointA + range
@@ -182,4 +179,4 @@ fun esOvalado(face: Face): Boolean {
         result = true
     }
     return result
-}
+}*/

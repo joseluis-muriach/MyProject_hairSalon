@@ -109,7 +109,7 @@ fun FloatingButton(navController: NavHostController, url: String) {
                     )
                 }
             },//Hasta aquí
-        containerColor = Color(0xFFF6CFFF),
+        containerColor = Color(0xFFF3DFF8),
         //Hacemos el floating redondo
         shape = CircleShape
     ) {

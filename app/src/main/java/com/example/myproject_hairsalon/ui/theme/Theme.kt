@@ -23,9 +23,10 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Color(0xFFF6CFFF),
+    primary = Color(0xFFFFFFFF),
     secondary = PurpleGrey40,
     tertiary = Pink40
+    /* Este es el rosa que empecé a hacer en la app -> 0xFFF6CFFF*/
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

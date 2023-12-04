@@ -77,7 +77,7 @@ fun MainCoverVertical(navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 35.dp, end = 35.dp, bottom = 7.dp)
-                    .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
+                    .background(color = Color(0xFFF3DFF8), RoundedCornerShape(50.dp))
                     .border(
                         1.dp,
                         Color.Black,//2.dp es el grosor del borde y Color.Black es el color del borde
@@ -88,6 +88,7 @@ fun MainCoverVertical(navController: NavHostController) {
                 ) {
                 Button(
                     onClick = { navController.navigate("VideoHowCalculateMyFace") },
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8)),
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(CenterVertically)
@@ -106,7 +107,7 @@ fun MainCoverVertical(navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 35.dp, end = 35.dp, bottom = 7.dp)
-                    .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
+                    .background(color = Color(0xFFF3DFF8), RoundedCornerShape(50.dp))
                     .border(
                         1.dp, Color.Black,
                         RoundedCornerShape(50.dp)
@@ -115,7 +116,7 @@ fun MainCoverVertical(navController: NavHostController) {
             ) {
                 Button(
                     onClick = { navController.navigate("MainCalculateMyFace") },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF)),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8)),
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(CenterVertically)
@@ -133,7 +134,7 @@ fun MainCoverVertical(navController: NavHostController) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(start = 35.dp, end = 35.dp, bottom = 7.dp)
-                    .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
+                    .background(color = Color(0xFFF3DFF8), RoundedCornerShape(50.dp))
                     .border(
                         1.dp,
                         Color.Black,//2.dp es el grosor del borde y Color.Black es el color del borde
@@ -144,7 +145,7 @@ fun MainCoverVertical(navController: NavHostController) {
                 ) {
                 Button(
                     onClick = { navController.navigate("CoverTypeFace") },
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF)),
+                    colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8)),
                     modifier = Modifier
                         .fillMaxWidth()
                         .align(CenterVertically)
@@ -164,8 +165,8 @@ fun MainCoverVertical(navController: NavHostController) {
             ) {
                 Box(
                     Modifier
-                        .padding(top = 16.dp),
-                        //.fillMaxSize(),
+                        .padding(top = 16.dp)
+                        .fillMaxSize(),
                     contentAlignment = Alignment.BottomEnd
                 ) {
                     FloatingButton(
@@ -175,8 +176,8 @@ fun MainCoverVertical(navController: NavHostController) {
 
                 Box(
                     Modifier
-                        .padding(top = 16.dp),
-                        //.fillMaxSize(),
+                        .padding(top = 16.dp)
+                        .fillMaxSize(),
                     contentAlignment = Alignment.BottomStart
                 ){
                     IconButton(
@@ -192,7 +193,7 @@ fun MainCoverVertical(navController: NavHostController) {
         }
     }
 
-    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    /*val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
     val items = listOf(
         Pair(Icons.Default.PlayArrow, "How calculate my type face"),
@@ -235,5 +236,5 @@ fun MainCoverVertical(navController: NavHostController) {
                 }
             }
         }, content = {}
-    )
+    )*/
 }
