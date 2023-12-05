@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -32,8 +33,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.TileMode
+import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.rotate
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 
@@ -68,13 +71,14 @@ fun FloatingButton(navController: NavHostController, url: String) {
 
     //Esta variable es necesaria para hacer un floating con borde de color
     val value by rememberInfiniteTransition(label = "").animateFloat(
-        initialValue = 0f,
-        targetValue = 360f,
+        initialValue = 20f,
+        targetValue = -20f,
         animationSpec = infiniteRepeatable(
             animation = tween(
-                durationMillis = 1000,
+                durationMillis = 600,
                 easing = LinearEasing
-            )
+            ),
+            repeatMode = RepeatMode.Reverse
         ), label = ""
     )
 
@@ -117,8 +121,16 @@ fun FloatingButton(navController: NavHostController, url: String) {
             imageVector = Icons.Default.FavoriteBorder,
             contentDescription = "Icono",
             tint = Color.Black,
-            modifier = Modifier.size(25.dp),
+            modifier = Modifier
+                .size(25.dp)
+                .graphicsLayer (
+                    transformOrigin = TransformOrigin(
+                        pivotFractionX = 0.5f,
+                        pivotFractionY = 0.5f
+                    ),
+                    rotationZ = value
 
+                )
             )
     }
 }

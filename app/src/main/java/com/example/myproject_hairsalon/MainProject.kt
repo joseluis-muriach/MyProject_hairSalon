@@ -26,7 +26,7 @@ class MainProject : ComponentActivity() {
                     composable("MainCover") { MainCover(navController) }
                     composable("MainCoverVertical") { MainCoverVertical(navController) }
                     composable("MainCoverLandScape") { MainCoverLandScape(navController) }
-                    //End Main Cover
+                    composable("MainCalculateMyFace") { MainCalculateMyFace(navController) }
 
                     //Type faces and description
                     composable("CoverTypeFace") { AllTypesFaceAndDescrip(navController) }
@@ -36,8 +36,14 @@ class MainProject : ComponentActivity() {
                     composable("VideoHowCalculateMyFace") { MainHowCalcFace(navController) }
                     composable("VideoCalculateTypeFace_LS") { MainHowCalcFace(navController) }
 
+                    //Menú desplazable
+                    composable("How calculate my type face") { MainHowCalcFace(navController) }
+                    composable("Calculate your type face") { MainCalculateMyFace(navController) }
+                    composable("Types faces") { AllTypesFaceAndDescrip(navController) }
+
                     //Calculate your face (how only if one screen if you want this not necessary)
-                    composable("MainCalculateMyFace") { MainCalculateMyFace(navController) }
+                    //composable("MainCalculateMyFace") { MainCalculateMyFace(navController) }
+
                 }
             }
         }
