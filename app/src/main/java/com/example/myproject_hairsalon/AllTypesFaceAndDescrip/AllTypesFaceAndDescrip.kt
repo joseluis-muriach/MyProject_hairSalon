@@ -38,7 +38,7 @@ fun AllTypesFaceAndDescrip(navController: NavController) {
                 Modifier
                     .fillMaxWidth()
                     .padding(top = 20.dp)
-                    .background(Color(0xFFF6CFFF)),
+                    .background(Color(0xFFF3DFF8)),
                 horizontalArrangement = Arrangement.Center,
 
                 ) {

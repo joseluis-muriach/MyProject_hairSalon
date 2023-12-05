@@ -65,7 +65,7 @@ fun CalculateMyFace(navController: NavController) {
                         fontFamily = fontCourgette,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(Color(0xFFF6CFFF)),
+                            .background(Color(0xFFF3DFF8)),
                         textAlign = TextAlign.Center
                     )
                 }
@@ -174,7 +174,7 @@ fun CalculateMyFace(navController: NavController) {
                         Modifier
                             .padding(10.dp)
                             .weight(1f),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF))
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8))
                     ) {
 
                         Text(
@@ -189,7 +189,7 @@ fun CalculateMyFace(navController: NavController) {
                         modifier = Modifier
                             .padding(10.dp)
                             .weight(1f),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF))
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8))
                     ) {
                         Text(
                             text = "See video",

@@ -53,7 +53,7 @@ fun VideoCalculateTypeFace_LS(navController: NavController){
                         onClick = { navController.navigate("MainCalculateMyFace") },
                         modifier = Modifier
                             .padding(top = 7.dp, start = 16.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF))
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8))
 
                     ) {
                         Text(

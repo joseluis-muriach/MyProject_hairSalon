@@ -52,7 +52,7 @@ fun MyTopAppBar(navController: NavController) {
                 )
             }
         },
-        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF6CFFF)),
+        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
         navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
             IconButton(onClick = { navController.navigate("MainCover")  }) { //En el onclick, en este caso no hará nada
                 Icon(
@@ -127,7 +127,7 @@ fun MyTopAppBarB(navController: NavController) {
                 )
             }
         },
-        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF6CFFF)),
+        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
         navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
             IconButton(onClick = { navController.navigate("MainCover")}) { //En el onclick, en este caso no hará nada
                 Icon(
@@ -203,7 +203,7 @@ fun MyTopAppBarC(navController: NavController) {
                 )
             }
         },
-        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF6CFFF)),
+        colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
         navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
             IconButton(onClick = { navController.navigate("MainCover")}) { //En el onclick, en este caso no hará nada
                 Icon(

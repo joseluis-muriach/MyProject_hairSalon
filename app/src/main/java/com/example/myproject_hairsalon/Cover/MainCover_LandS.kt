@@ -62,7 +62,7 @@ fun MainCoverLandScape(navController: NavHostController) {
                             .fillMaxWidth()
                             .padding(
                                 start = 105.dp, end = 105.dp, bottom = 7.dp)
-                            .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
+                            .background(color = Color(0xFFF3DFF8), RoundedCornerShape(50.dp))
                             .border(
                                 1.dp,
                                 Color.Black,//2.dp es el grosor del borde y Color.Black es el color del borde
@@ -92,7 +92,7 @@ fun MainCoverLandScape(navController: NavHostController) {
                             .fillMaxWidth()
                             .padding(
                                 start = 105.dp, end = 105.dp, bottom = 7.dp)
-                            .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
+                            .background(color = Color(0xFFF3DFF8), RoundedCornerShape(50.dp))
                             .border(
                                 1.dp, Color.Black,
                                 RoundedCornerShape(50.dp)
@@ -101,7 +101,7 @@ fun MainCoverLandScape(navController: NavHostController) {
                     ) {
                         Button(
                             onClick = { navController.navigate("MainCalculateMyFace") },
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF)),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8)),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .align(Alignment.CenterVertically)
@@ -120,7 +120,7 @@ fun MainCoverLandScape(navController: NavHostController) {
                             .fillMaxWidth()
                             .padding(
                                 start = 105.dp, end = 105.dp, bottom = 7.dp)
-                            .background(color = Color(0xFFF6CFFF), RoundedCornerShape(50.dp))
+                            .background(color = Color(0xFFF3DFF8), RoundedCornerShape(50.dp))
                             .border(
                                 1.dp,
                                 Color.Black,//2.dp es el grosor del borde y Color.Black es el color del borde
@@ -131,7 +131,7 @@ fun MainCoverLandScape(navController: NavHostController) {
                         ) {
                         Button(
                             onClick = { navController.navigate("CoverTypeFace") },
-                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF6CFFF)),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFF3DFF8)),
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .align(Alignment.CenterVertically)

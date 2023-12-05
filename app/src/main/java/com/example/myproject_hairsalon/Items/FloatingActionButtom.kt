@@ -49,7 +49,7 @@ fun FloatingButtom(navController: NavController){
         modifier = Modifier
             .padding(16.dp)
             .fillMaxSize(),
-        containerColor = Color(0xFFF6CFFF)
+        containerColor = Color(0xFFF3DFF8)
     ) {
         Text(
             text = "See faces types",
