@@ -19,6 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
@@ -127,7 +128,7 @@ fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp, onItemClick: () -> Unit) {
 }
 
 @Composable
-fun LazyColumItems() {
+fun LazyColumItems(navController: NavController) {
     LazyColumn(
         verticalArrangement = Arrangement.Center
     ){
@@ -135,7 +136,11 @@ fun LazyColumItems() {
             ItemPhotoAndText(
                 typesOfFaces = allItems,
                 onItemClick = {
-
+                    when(allItems.text) {
+                        "ROSTRO ALARGADO" -> {
+                            navController.navigate("LazyRowPhoto")
+                        }
+                    }
                 }
             )
         }

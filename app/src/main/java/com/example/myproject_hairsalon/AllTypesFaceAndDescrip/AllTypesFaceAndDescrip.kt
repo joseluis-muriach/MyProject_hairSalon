@@ -48,7 +48,7 @@ fun AllTypesFaceAndDescrip(navController: NavController) {
                     fontFamily = fontCourgette
                 )
             }
-            LazyColumItems()
+            LazyColumItems(navController)
         }
     }
 }

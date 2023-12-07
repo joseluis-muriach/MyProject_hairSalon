@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -24,6 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.myproject_hairsalon.R
+import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
 data class LongFace(
     @DrawableRes var picture: Int
@@ -46,13 +48,17 @@ fun getLongFace(): List<LongFace> {
 fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.clickable { onItemSelected(longFace)}
+        modifier = Modifier
+            .clickable { onItemSelected(longFace) }
+            .padding(5.dp)
     ) {
         Image(
             painter = painterResource(id = longFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
-            modifier = Modifier.padding(5.dp)
+            modifier = Modifier
+                .padding(5.dp)
+                .size(150.dp)
         )
     }
 }
@@ -83,8 +89,23 @@ fun LazyRowPhoto(navController: NavHostController) {
                     //Desripción (que esto da igual)
                     contentDescription = "La imagen que elija el user",
                     //Asignamos el tamañp de la foto
-                    modifier = Modifier.size(500.dp).padding(5.dp))
+                    modifier = Modifier
+                        .padding(top = 5.dp)
+                        .size(500.dp)
+                )
             }
+        }
+
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(start = 10.dp, top = 5.dp),
+
+        ) {
+
+            Text(text = "Aquí vamos a poner un texto :)",
+                fontFamily = fontCourgette
+            )
         }
     }
 }
