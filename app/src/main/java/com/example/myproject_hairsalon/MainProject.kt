@@ -43,7 +43,6 @@ class MainProject : ComponentActivity() {
 
                     //Calculate your face (how only if one screen if you want this not necessary)
                     //composable("MainCalculateMyFace") { MainCalculateMyFace(navController) }
-
                 }
             }
         }
