@@ -2,6 +2,7 @@ package com.example.myproject_hairsalon.AllTypesFaceAndDescrip.FaceTitleAndDescr
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -91,11 +92,13 @@ fun getTypesOfFaces(): List<itemFaceTitDescp> {
 
 //Function where create the format
 @Composable
-fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp) {
+fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp, onItemClick: () -> Unit) {
     Row(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .fillMaxSize()
+            .clickable { onItemClick() },
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
+        horizontalArrangement = Arrangement.Center,
     ) {
         Image(
             painter = painterResource(id = typesOfFaces.photo),
@@ -130,7 +133,10 @@ fun LazyColumItems() {
     ){
         items(getTypesOfFaces()) { allItems ->
             ItemPhotoAndText(
-                typesOfFaces = allItems
+                typesOfFaces = allItems,
+                onItemClick = {
+
+                }
             )
         }
     }

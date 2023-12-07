@@ -10,6 +10,7 @@ import com.example.myproject_hairsalon.AllMains.MainCalculateMyFace
 import com.example.myproject_hairsalon.AllMains.MainCover
 import com.example.myproject_hairsalon.AllMains.MainHowCalcFace
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.AllTypesFaceAndDescrip
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhoto
 import com.example.myproject_hairsalon.Cover.MainCoverVertical
 import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
@@ -40,6 +41,8 @@ class MainProject : ComponentActivity() {
                     composable("How calculate my type face") { MainHowCalcFace(navController) }
                     composable("Calculate your type face") { MainCalculateMyFace(navController) }
                     composable("Types faces") { AllTypesFaceAndDescrip(navController) }
+
+                    composable("LazyRowPhoto") {LazyRowPhoto(navController)}
 
                     //Calculate your face (how only if one screen if you want this not necessary)
                     //composable("MainCalculateMyFace") { MainCalculateMyFace(navController) }

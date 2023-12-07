@@ -36,6 +36,9 @@ import com.example.myproject_hairsalon.ui.theme.fontCourgette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+/*
+In this screen we can see how to create the top app bar (There are four top app bar)
+ */
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

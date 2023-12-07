@@ -31,7 +31,7 @@ data class Face(
                     "Your face type is HEART"
                 }
                 esTriangularInvert(face) -> {
-                    "Your face type is 'V'"
+                    "Your face type is 'INVERTED TRIANGLE'"
                 }
                 esDiamante(face) -> {
                     "Your face type is DIAMOND"

@@ -40,6 +40,9 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 
+/*
+In this screen we can see a button that we will go to the screen "Type of faces"
+* */
 @Composable
 fun FloatingButtom(navController: NavController){
     FloatingActionButton(
@@ -135,7 +138,7 @@ fun FloatingButton(navController: NavHostController, url: String) {
     }
 }
 
-
+//This function is used to open the url in the browser
 fun openUrlInBrowser(context: Context, url: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     context.startActivity(intent)
