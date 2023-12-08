@@ -150,22 +150,22 @@ fun MainCoverVertical(navController: NavHostController) {
                         )
                     }
 
-                    Box(
-                        Modifier
-                            .padding(top = 16.dp)
-                            .fillMaxSize(),
-                        contentAlignment = Alignment.BottomStart
-                    ) {
-                        IconButton(
-                            onClick = {},
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.ArrowForward,
-                                contentDescription = null,
-                                tint = Color.Black
-                            )
-                        }
-                    }
+//                    Box(
+//                        Modifier
+//                            .padding(top = 16.dp)
+//                            .fillMaxSize(),
+//                        contentAlignment = Alignment.BottomStart
+//                    ) {
+//                        IconButton(
+//                            onClick = {},
+//                        ) {
+//                            Icon(
+//                                imageVector = Icons.Default.ArrowForward,
+//                                contentDescription = null,
+//                                tint = Color.Black
+//                            )
+//                        }
+//                    }
                 }
             }
         )

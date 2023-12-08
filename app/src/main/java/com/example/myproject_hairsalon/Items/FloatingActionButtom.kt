@@ -24,6 +24,7 @@ import androidx.compose.animation.core.rememberInfiniteTransition
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.Info
@@ -44,7 +45,7 @@ import androidx.navigation.NavHostController
 In this screen we can see a button that we will go to the screen "Type of faces"
 * */
 @Composable
-fun FloatingButtom(navController: NavController){
+fun FloatingButtom(navController: NavController) {
     FloatingActionButton(
         onClick = {
             navController.navigate("CoverTypeFace")
@@ -92,20 +93,22 @@ fun FloatingButton(navController: NavHostController, url: String) {
         Color(0xFFFFC107),
         //Color(0xFFFF5722),
     )
-    val gradientBrush by remember { mutableStateOf(
-        Brush.horizontalGradient(
-            colors = colors,
-            startX = -10.0f,
-            endX = 400.0f,
-            tileMode = TileMode.Repeated
+    val gradientBrush by remember {
+        mutableStateOf(
+            Brush.horizontalGradient(
+                colors = colors,
+                startX = -10.0f,
+                endX = 400.0f,
+                tileMode = TileMode.Repeated
+            )
         )
-    )
     }
     //Hasta aqui
 
     FloatingActionButton(
         onClick = {
-            openUrlInBrowser(context, websiteUrl)},
+            openUrlInBrowser(context, websiteUrl)
+        },
         modifier = Modifier
             .padding(16.dp)
             //Esto nos hace falta para poner el borde de color
@@ -126,7 +129,7 @@ fun FloatingButton(navController: NavHostController, url: String) {
             tint = Color.Black,
             modifier = Modifier
                 .size(25.dp)
-                .graphicsLayer (
+                .graphicsLayer(
                     transformOrigin = TransformOrigin(
                         pivotFractionX = 0.5f,
                         pivotFractionY = 0.5f
@@ -134,7 +137,7 @@ fun FloatingButton(navController: NavHostController, url: String) {
                     rotationZ = value
 
                 )
-            )
+        )
     }
 }
 
@@ -142,4 +145,28 @@ fun FloatingButton(navController: NavHostController, url: String) {
 fun openUrlInBrowser(context: Context, url: String) {
     val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     context.startActivity(intent)
+}
+
+@Composable
+fun FloatingActionRollBack(navController: NavController) {
+    FloatingActionButton(
+        onClick = {
+            navController.navigate("Types faces")
+            // Handle click action here
+            // For example, show a snackbar
+            // SnackbarHostState.current.showSnackbar("FAB Clicked")
+        },
+        modifier = Modifier
+            .padding(16.dp),
+        containerColor = Color(0xFFF3DFF8)
+    ) {
+        Icon(
+            imageVector = Icons.Default.ArrowBack,
+            contentDescription = "Arrow back",
+            tint = Color.Black,
+            modifier = Modifier
+                .size(25.dp)
+
+        )
+    }
 }
