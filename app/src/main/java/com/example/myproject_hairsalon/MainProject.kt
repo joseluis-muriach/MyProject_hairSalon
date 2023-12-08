@@ -10,7 +10,10 @@ import com.example.myproject_hairsalon.AllMains.MainCalculateMyFace
 import com.example.myproject_hairsalon.AllMains.MainCover
 import com.example.myproject_hairsalon.AllMains.MainHowCalcFace
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.AllTypesFaceAndDescrip
-import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhoto
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoL
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoR
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoC
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoRo
 import com.example.myproject_hairsalon.Cover.MainCoverVertical
 import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
@@ -37,15 +40,18 @@ class MainProject : ComponentActivity() {
                     composable("VideoHowCalculateMyFace") { MainHowCalcFace(navController) }
                     composable("VideoCalculateTypeFace_LS") { MainHowCalcFace(navController) }
 
-                    //Menú desplazable
+                    //Scrollable menu
                     composable("How calculate my type face") { MainHowCalcFace(navController) }
                     composable("Calculate your type face") { MainCalculateMyFace(navController) }
                     composable("Types faces") { AllTypesFaceAndDescrip(navController) }
 
-                    composable("LazyRowPhoto") {LazyRowPhoto(navController)}
+                    //Real type faces
+                    composable("LazyRowPhotoL") { LazyRowPhotoL(navController) }
+                    composable("LazyRowPhotoR") { LazyRowPhotoR(navController) }
+                    composable("LazyRowPhotoRo") { LazyRowPhotoRo(navController) }
+                    composable("LazyRowPhotoC") { LazyRowPhotoC(navController) }
 
-                    //Calculate your face (how only if one screen if you want this not necessary)
-                    //composable("MainCalculateMyFace") { MainCalculateMyFace(navController) }
+
                 }
             }
         }

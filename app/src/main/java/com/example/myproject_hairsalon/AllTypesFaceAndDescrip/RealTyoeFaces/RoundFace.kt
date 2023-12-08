@@ -30,34 +30,34 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-data class LongFace(
+data class RoundFace(
     @DrawableRes var picture: Int
 )
 
-fun getLongFace(): List<LongFace> {
+fun getRoundFace(): List<RoundFace> {
     return listOf(
-        LongFace(
-            R.drawable.a1
+        RoundFace(
+            R.drawable.red1
         ),
-        LongFace(
-            R.drawable.a2
+        RoundFace(
+            R.drawable.red2
         ),
-        LongFace(
-            R.drawable.a3
+        RoundFace(
+            R.drawable.red3
         ),
     )
 }
 
 @Composable
-fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
+fun RoundFaceItem(RoundFace: RoundFace, onItemSelected: (RoundFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { onItemSelected(longFace) }
+            .clickable { onItemSelected(RoundFace) }
             .padding(5.dp)
     ) {
         Image(
-            painter = painterResource(id = longFace.picture),
+            painter = painterResource(id = RoundFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
             modifier = Modifier
@@ -68,16 +68,16 @@ fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
 }
 
 @Composable
-fun LazyRowPhotoL(navController: NavHostController) {
-    var selectedPicture: LongFace? by remember { mutableStateOf(null) }
+fun LazyRowPhotoRo(navController: NavHostController) {
+    var selectedPicture: RoundFace? by remember { mutableStateOf(null) }
 
     Column(
         Modifier.fillMaxSize()
     ) {
         LazyRow {
-            items(getLongFace()) { longFace ->
-                LongFaceItem(
-                    longFace = longFace
+            items(getRoundFace()) { RoundFace ->
+                RoundFaceItem(
+                    RoundFace = RoundFace
                 ) { selectedPicture = it }
             }
         }

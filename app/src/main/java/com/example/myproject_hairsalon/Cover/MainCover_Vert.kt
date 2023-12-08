@@ -149,23 +149,6 @@ fun MainCoverVertical(navController: NavHostController) {
                             navController, "https://instagram.com/andrea.laslo?igshid=OGQ5ZDc2ODk2ZA=="
                         )
                     }
-
-//                    Box(
-//                        Modifier
-//                            .padding(top = 16.dp)
-//                            .fillMaxSize(),
-//                        contentAlignment = Alignment.BottomStart
-//                    ) {
-//                        IconButton(
-//                            onClick = {},
-//                        ) {
-//                            Icon(
-//                                imageVector = Icons.Default.ArrowForward,
-//                                contentDescription = null,
-//                                tint = Color.Black
-//                            )
-//                        }
-//                    }
                 }
             }
         )

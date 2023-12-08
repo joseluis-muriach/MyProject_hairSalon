@@ -30,34 +30,34 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-data class LongFace(
+data class SquareFace(
     @DrawableRes var picture: Int
 )
 
-fun getLongFace(): List<LongFace> {
+fun getSquareFace(): List<SquareFace> {
     return listOf(
-        LongFace(
-            R.drawable.a1
+        SquareFace(
+            R.drawable.c1
         ),
-        LongFace(
-            R.drawable.a2
+        SquareFace(
+            R.drawable.c2
         ),
-        LongFace(
-            R.drawable.a3
+        SquareFace(
+            R.drawable.c3
         ),
     )
 }
 
 @Composable
-fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
+fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { onItemSelected(longFace) }
+            .clickable { onItemSelected(SquareFace) }
             .padding(5.dp)
     ) {
         Image(
-            painter = painterResource(id = longFace.picture),
+            painter = painterResource(id = SquareFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
             modifier = Modifier
@@ -68,16 +68,16 @@ fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
 }
 
 @Composable
-fun LazyRowPhotoL(navController: NavHostController) {
-    var selectedPicture: LongFace? by remember { mutableStateOf(null) }
+fun LazyRowPhotoC(navController: NavHostController) {
+    var selectedPicture: SquareFace? by remember { mutableStateOf(null) }
 
     Column(
         Modifier.fillMaxSize()
     ) {
         LazyRow {
-            items(getLongFace()) { longFace ->
-                LongFaceItem(
-                    longFace = longFace
+            items(getSquareFace()) { SquareFace ->
+                SquareFaceItem(
+                    SquareFace = SquareFace
                 ) { selectedPicture = it }
             }
         }

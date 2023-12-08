@@ -138,7 +138,16 @@ fun LazyColumItems(navController: NavController) {
                 onItemClick = {
                     when(allItems.text) {
                         "ROSTRO ALARGADO" -> {
-                            navController.navigate("LazyRowPhoto")
+                            navController.navigate("LazyRowPhotoL")
+                        }
+                        "ROSTRO RECTANGULAR" -> {
+                            navController.navigate("LazyRowPhotoR")
+                        }
+                        "ROSTRO REDONDO" -> {
+                            navController.navigate("LazyRowPhotoRo")
+                        }
+                        "ROSTRO CUADRADO" -> {
+                            navController.navigate("LazyRowPhotoC")
                         }
                     }
                 }

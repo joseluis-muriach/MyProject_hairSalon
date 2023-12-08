@@ -30,34 +30,34 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-data class LongFace(
+data class RectangFace(
     @DrawableRes var picture: Int
 )
 
-fun getLongFace(): List<LongFace> {
+fun getRectangFace(): List<RectangFace> {
     return listOf(
-        LongFace(
-            R.drawable.a1
+        RectangFace(
+            R.drawable.r1
         ),
-        LongFace(
-            R.drawable.a2
+        RectangFace(
+            R.drawable.r2
         ),
-        LongFace(
-            R.drawable.a3
+        RectangFace(
+            R.drawable.r3
         ),
     )
 }
 
 @Composable
-fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
+fun RectangFaceItem(RectangFace: RectangFace, onItemSelected: (RectangFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { onItemSelected(longFace) }
+            .clickable { onItemSelected(RectangFace) }
             .padding(5.dp)
     ) {
         Image(
-            painter = painterResource(id = longFace.picture),
+            painter = painterResource(id = RectangFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
             modifier = Modifier
@@ -68,16 +68,16 @@ fun LongFaceItem(longFace: LongFace, onItemSelected: (LongFace) -> Unit) {
 }
 
 @Composable
-fun LazyRowPhotoL(navController: NavHostController) {
-    var selectedPicture: LongFace? by remember { mutableStateOf(null) }
+fun LazyRowPhotoR(navController: NavHostController) {
+    var selectedPicture: RectangFace? by remember { mutableStateOf(null) }
 
     Column(
         Modifier.fillMaxSize()
     ) {
         LazyRow {
-            items(getLongFace()) { longFace ->
-                LongFaceItem(
-                    longFace = longFace
+            items(getRectangFace()) { RectangFace ->
+                RectangFaceItem(
+                    RectangFace = RectangFace
                 ) { selectedPicture = it }
             }
         }
