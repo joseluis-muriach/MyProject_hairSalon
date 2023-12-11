@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
@@ -74,56 +75,73 @@ fun LazyRowPhotoC(navController: NavHostController) {
     Column(
         Modifier.fillMaxSize()
     ) {
-        LazyRow {
-            items(getSquareFace()) { SquareFace ->
-                SquareFaceItem(
-                    SquareFace = SquareFace
-                ) { selectedPicture = it }
+        LazyColumn {
+            item {
+                LazyRow {
+                    items(getSquareFace()) { SquareFace ->
+                        SquareFaceItem(
+                            SquareFace = SquareFace
+                        ) { selectedPicture = it }
+                    }
+                }
             }
-        }
 
-        Spacer(modifier = Modifier.padding(top = 20.dp))
-
-        Row(
-            Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
-            //La imagen que seleccione el usuario estara en esta variable
-            selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
-                //De lo que ha elegido el user, cogemos la foto
-                Image(
-                    painter = painterResource(id = it.picture),
-                    //Desripción (que esto da igual)
-                    contentDescription = "La imagen que elija el user",
-                    //Asignamos el tamañp de la foto
-                    modifier = Modifier
-                        .padding(bottom = 13.dp)
-                        .size(400.dp)
-                )
+            item {
+                Spacer(modifier = Modifier.padding(top = 20.dp))
             }
-        }
 
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(start = 10.dp, top = 5.dp),
+            item {
+                Row(
+                    Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    //La imagen que seleccione el usuario estara en esta variable
+                    selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
+                        //De lo que ha elegido el user, cogemos la foto
+                        Image(
+                            painter = painterResource(id = it.picture),
+                            //Desripción (que esto da igual)
+                            contentDescription = "La imagen que elija el user",
+                            //Asignamos el tamañp de la foto
+                            modifier = Modifier
+                                .padding(bottom = 13.dp)
+                                .size(400.dp)
+                        )
+                    }
+                }
+            }
 
-            ) {
-            Text(
-                text = "Aquí vamos a poner un texto :)",
-                fontFamily = fontCourgette,
-            )
-        }
+            item {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, top = 5.dp),
 
-        Row(
-            Modifier.fillMaxWidth(),
-        ) {
-            Box(
-                Modifier.fillMaxSize(),
-                contentAlignment = Alignment.BottomEnd
-            ) {
-                FloatingActionRollBack(navController)
+                    ) {
+                    Text(
+                        text =
+                        "A short face with equal-width features seeks elongation and jaw angle disguise.\n\n" +
+                                "Avoid framing and lateral volume. Opt for voluminous hairstyles with a middle or side part to lengthen the face.\n\n" +
+                                "Choose side-swept or curtain bangs to avoid framing, while avoiding straight bangs.\n\n" +
+                                "For the jaw, consider layered cuts from the chin or long straight cuts.\n\n" +
+                                "In medium hair, prefer a Bob for elongation; in short hair, go for volume like a pompadour, avoiding pixie styles that frame the face.",
+                        fontFamily = fontCourgette,
+                    )
+                }
+            }
+
+            item {
+                Row(
+                    Modifier.fillMaxWidth(),
+                ) {
+                    Box(
+                        Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.BottomEnd
+                    ) {
+                        FloatingActionRollBack(navController)
+                    }
+                }
             }
         }
     }
