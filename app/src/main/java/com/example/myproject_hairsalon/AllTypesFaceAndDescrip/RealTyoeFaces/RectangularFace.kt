@@ -122,14 +122,15 @@ fun LazyRowPhotoR(navController: NavHostController) {
                     Text(
                         text =
                         "To harmonize a rectangular face, it is key to visually shorten the face, hide the angularity of " +
-                                "the chin and add lateral volume. Avoid a lot of volume at the top, preferring the side part over the middle " +
-                                "part.\n\n" +
+                                "the chin and add lateral volume.\n\n" +
+                                "Avoid a lot of volume at the top, preferring the side part over the middle part.\n\n" +
                                 "Straight or side-swept bangs are ideal for the forehead, but avoid curtain bangs if your hair is straight.\n\n" +
                                 "In the jaw area, opt for blunt cuts to add volume and hide angularity.\n\n" +
                                 "Wavy hairstyles are recommended, avoiding straight hair that highlights the jaw.\n\n" +
                                 "For short hair, consider cuts such as the pixie or mullet style to shorten and give lateral volume, " +
                                 "avoiding the quiff that lengthens the face.",
                         fontFamily = fontCourgette,
+                        modifier = Modifier.padding(5.dp)
                     )
                 }
             }

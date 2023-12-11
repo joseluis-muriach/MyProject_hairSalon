@@ -119,11 +119,11 @@ fun LazyRowPhotoL(navController: NavHostController) {
                     ) {
                     Text(
                         text =
-                        "To harmonize a long and thin face, it is advisable to visually shorten the face and add lateral volume. " +
+                        "To harmonize a long and thin face, it is advisable to visually shorten the face and add lateral volume.\n\n" +
                                 "Avoid volume at the top, opt for a side parting or middle parting with bangs.\n\n" +
                                 "For the forehead, choose straight or side-swept bangs, avoid curtain bangs with straight hair.\n\n" +
-                                "On the jawline, consider bob cuts and chin-length bangs. The straight cut for medium length hair is favorable, " +
-                                "avoid the Bob cut without bangs.\n" +
+                                "On the jawline, consider bob cuts and chin-length bangs.\n\n" +
+                                "The straight cut for medium length hair is favorable, avoid the Bob cut without bangs.\n" +
                                 "Waves and side hairstyles are ideal for adding volume.\n\n" +
                                 "For short hair, avoid toupees that elongate the face.",
                         fontFamily = fontCourgette,
