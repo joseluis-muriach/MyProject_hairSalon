@@ -31,34 +31,35 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-data class SquareFace(
+/*TENGO QUE CAMBIAR LAS FOTOS*/
+data class TriangleFace(
     @DrawableRes var picture: Int
 )
 
-fun getSquareFace(): List<SquareFace> {
+fun getTriangleFace(): List<TriangleFace> {
     return listOf(
-        SquareFace(
+        TriangleFace(
             R.drawable.c1
         ),
-        SquareFace(
+        TriangleFace(
             R.drawable.c2
         ),
-        SquareFace(
+        TriangleFace(
             R.drawable.c3
         ),
     )
 }
 
 @Composable
-fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit) {
+fun TriangleFaceItem(TriangleFace: TriangleFace, onItemSelected: (TriangleFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { onItemSelected(SquareFace) }
+            .clickable { onItemSelected(TriangleFace) }
             .padding(5.dp)
     ) {
         Image(
-            painter = painterResource(id = SquareFace.picture),
+            painter = painterResource(id = TriangleFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
             modifier = Modifier
@@ -69,8 +70,8 @@ fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit)
 }
 
 @Composable
-fun LazyRowPhotoC(navController: NavHostController) {
-    var selectedPicture: SquareFace? by remember { mutableStateOf(null) }
+fun LazyRowPhotoT(navController: NavHostController) {
+    var selectedPicture: TriangleFace? by remember { mutableStateOf(null) }
 
     Column(
         Modifier.fillMaxSize()
@@ -78,9 +79,9 @@ fun LazyRowPhotoC(navController: NavHostController) {
         LazyColumn {
             item {
                 LazyRow {
-                    items(getSquareFace()) { SquareFace ->
-                        SquareFaceItem(
-                            SquareFace = SquareFace
+                    items(getTriangleFace()) { TriangleFace ->
+                        TriangleFaceItem(
+                            TriangleFace = TriangleFace
                         ) { selectedPicture = it }
                     }
                 }
@@ -121,13 +122,14 @@ fun LazyRowPhotoC(navController: NavHostController) {
                     ) {
                     Text(
                         text =
-                        "A short face with equal-width features seeks elongation and jaw angle disguise.\n\n" +
-                                "Avoid framing and lateral volume. Opt for voluminous hairstyles with a middle or side part to lengthen the face.\n\n" +
-                                "Choose side-swept or curtain bangs to avoid framing, while avoiding straight bangs.\n\n" +
-                                "For the jaw, consider layered cuts from the chin or long straight cuts.\n\n" +
-                                "In medium hair, prefer a Bob for elongation; in short hair, go for volume like a pompadour, avoiding pixie styles that frame the face.",
+                        "This face type has a narrow forehead, prominent cheekbones, and a wider jaw.\n\n" +
+                                "To harmonize, add volume on top and soften the angular chin. Opt for a middle or side part to balance hair volume. " +
+                                "Choose side-swept or curtain bangs for the forehead and avoid straight bangs.\n\n" +
+                                "For the jaw, go for a layered cut from the chin or long straight cuts.\n\n" +
+                                "In medium hair, prefer a Bob for elongation, and in short hair, choose voluminous styles like a pompadour, " +
+                                "avoiding pixie cuts that frame the face.",
                         fontFamily = fontCourgette,
-                        modifier = Modifier.padding(5.dp)
+                        modifier = Modifier.padding(10.dp)
                     )
                 }
             }

@@ -13,7 +13,11 @@ import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.AllTypesFaceAndDes
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoL
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoR
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoC
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoD
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoH
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoO
 import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoRo
+import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.LazyRowPhotoT
 import com.example.myproject_hairsalon.Cover.MainCoverVertical
 import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
@@ -50,8 +54,10 @@ class MainProject : ComponentActivity() {
                     composable("LazyRowPhotoR") { LazyRowPhotoR(navController) }
                     composable("LazyRowPhotoRo") { LazyRowPhotoRo(navController) }
                     composable("LazyRowPhotoC") { LazyRowPhotoC(navController) }
-
-
+                    composable("LazyRowPhotoT") { LazyRowPhotoT(navController) }
+                    composable("LazyRowPhotoH") { LazyRowPhotoH(navController) }
+                    composable("LazyRowPhotoD") { LazyRowPhotoD(navController) }
+                    composable("LazyRowPhotoO") { LazyRowPhotoO(navController) }
                 }
             }
         }

@@ -31,34 +31,35 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-data class SquareFace(
+/*TENGO QUE CAMBIAR LAS FOTOS*/
+data class OvalFace(
     @DrawableRes var picture: Int
 )
 
-fun getSquareFace(): List<SquareFace> {
+fun getOvalFace(): List<OvalFace> {
     return listOf(
-        SquareFace(
+        OvalFace(
             R.drawable.c1
         ),
-        SquareFace(
+        OvalFace(
             R.drawable.c2
         ),
-        SquareFace(
+        OvalFace(
             R.drawable.c3
         ),
     )
 }
 
 @Composable
-fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit) {
+fun OvalFaceItem(OvalFace: OvalFace, onItemSelected: (OvalFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { onItemSelected(SquareFace) }
+            .clickable { onItemSelected(OvalFace) }
             .padding(5.dp)
     ) {
         Image(
-            painter = painterResource(id = SquareFace.picture),
+            painter = painterResource(id = OvalFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
             modifier = Modifier
@@ -69,8 +70,8 @@ fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit)
 }
 
 @Composable
-fun LazyRowPhotoC(navController: NavHostController) {
-    var selectedPicture: SquareFace? by remember { mutableStateOf(null) }
+fun LazyRowPhotoO(navController: NavHostController) {
+    var selectedPicture: OvalFace? by remember { mutableStateOf(null) }
 
     Column(
         Modifier.fillMaxSize()
@@ -78,9 +79,9 @@ fun LazyRowPhotoC(navController: NavHostController) {
         LazyColumn {
             item {
                 LazyRow {
-                    items(getSquareFace()) { SquareFace ->
-                        SquareFaceItem(
-                            SquareFace = SquareFace
+                    items(getOvalFace()) { OvalFace ->
+                        OvalFaceItem(
+                            OvalFace = OvalFace
                         ) { selectedPicture = it }
                     }
                 }
@@ -121,13 +122,12 @@ fun LazyRowPhotoC(navController: NavHostController) {
                     ) {
                     Text(
                         text =
-                        "A short face with equal-width features seeks elongation and jaw angle disguise.\n\n" +
-                                "Avoid framing and lateral volume. Opt for voluminous hairstyles with a middle or side part to lengthen the face.\n\n" +
-                                "Choose side-swept or curtain bangs to avoid framing, while avoiding straight bangs.\n\n" +
-                                "For the jaw, consider layered cuts from the chin or long straight cuts.\n\n" +
-                                "In medium hair, prefer a Bob for elongation; in short hair, go for volume like a pompadour, avoiding pixie styles that frame the face.",
+                        "The oval face is considered the perfect face shape and requires no corrections.\n\n" +
+                                "It is deemed ideal because neither the cheekbones nor the jawline is too prominent, " +
+                                "maintaining balanced proportions.\n\n" +
+                                "Therefore, other face shapes may be accentuated to resemble an oval face.",
                         fontFamily = fontCourgette,
-                        modifier = Modifier.padding(5.dp)
+                        modifier = Modifier.padding(10.dp)
                     )
                 }
             }

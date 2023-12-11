@@ -149,6 +149,18 @@ fun LazyColumItems(navController: NavController) {
                         "ROSTRO CUADRADO" -> {
                             navController.navigate("LazyRowPhotoC")
                         }
+                        "ROSTRO PERA/ROSTRO TRIANGULAR" -> {
+                            navController.navigate("LazyRowPhotoT")
+                        }
+                        "ROSTRO CORAZÓN" -> {
+                            navController.navigate("LazyRowPhotoH")
+                        }
+                        "ROSTRO DIAMANTE" -> {
+                            navController.navigate("LazyRowPhotoD")
+                        }
+                        "ROSTRO OVALADO" -> {
+                            navController.navigate("LazyRowPhotoO")
+                        }
                     }
                 }
             )

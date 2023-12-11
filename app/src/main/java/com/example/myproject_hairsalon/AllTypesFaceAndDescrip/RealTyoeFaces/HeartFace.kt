@@ -31,34 +31,35 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-data class SquareFace(
+/*TENGO QUE CAMBIAR LAS FOTOS*/
+data class HeartFace(
     @DrawableRes var picture: Int
 )
 
-fun getSquareFace(): List<SquareFace> {
+fun getHeartFace(): List<HeartFace> {
     return listOf(
-        SquareFace(
+        HeartFace(
             R.drawable.c1
         ),
-        SquareFace(
+        HeartFace(
             R.drawable.c2
         ),
-        SquareFace(
+        HeartFace(
             R.drawable.c3
         ),
     )
 }
 
 @Composable
-fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit) {
+fun HeartFaceItem(HeartFace: HeartFace, onItemSelected: (HeartFace) -> Unit) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .clickable { onItemSelected(SquareFace) }
+            .clickable { onItemSelected(HeartFace) }
             .padding(5.dp)
     ) {
         Image(
-            painter = painterResource(id = SquareFace.picture),
+            painter = painterResource(id = HeartFace.picture),
             contentDescription = "Photo of long faces",
             contentScale = ContentScale.Inside,
             modifier = Modifier
@@ -69,8 +70,8 @@ fun SquareFaceItem(SquareFace: SquareFace, onItemSelected: (SquareFace) -> Unit)
 }
 
 @Composable
-fun LazyRowPhotoC(navController: NavHostController) {
-    var selectedPicture: SquareFace? by remember { mutableStateOf(null) }
+fun LazyRowPhotoH(navController: NavHostController) {
+    var selectedPicture: HeartFace? by remember { mutableStateOf(null) }
 
     Column(
         Modifier.fillMaxSize()
@@ -78,9 +79,9 @@ fun LazyRowPhotoC(navController: NavHostController) {
         LazyColumn {
             item {
                 LazyRow {
-                    items(getSquareFace()) { SquareFace ->
-                        SquareFaceItem(
-                            SquareFace = SquareFace
+                    items(getHeartFace()) { HeartFace ->
+                        HeartFaceItem(
+                            HeartFace = HeartFace
                         ) { selectedPicture = it }
                     }
                 }
@@ -121,13 +122,14 @@ fun LazyRowPhotoC(navController: NavHostController) {
                     ) {
                     Text(
                         text =
-                        "A short face with equal-width features seeks elongation and jaw angle disguise.\n\n" +
-                                "Avoid framing and lateral volume. Opt for voluminous hairstyles with a middle or side part to lengthen the face.\n\n" +
-                                "Choose side-swept or curtain bangs to avoid framing, while avoiding straight bangs.\n\n" +
-                                "For the jaw, consider layered cuts from the chin or long straight cuts.\n\n" +
-                                "In medium hair, prefer a Bob for elongation; in short hair, go for volume like a pompadour, avoiding pixie styles that frame the face.",
+                        "This face type features a wide forehead, prominent cheekbones, and a narrowing jawline.\n\n" +
+                                "To balance, minimize the forehead and add volume to the jaw. Avoid volumizing the top, choose a side or middle part.\n\n" +
+                                "For the forehead, opt for straight, side-swept, or curtain bangs.\n\n" +
+                                "Add volume to the jaw with layered cuts falling on the face or starting from the chin.·\n\n" +
+                                "A straight medium-length cut frames the face. Waves are better than straight hair for lateral volume.\n\n" +
+                                "In short hair, consider pixie or asymmetrical styles, avoiding pompadour-like styles that emphasize the wide forehead.",
                         fontFamily = fontCourgette,
-                        modifier = Modifier.padding(5.dp)
+                        modifier = Modifier.padding(10.dp)
                     )
                 }
             }
