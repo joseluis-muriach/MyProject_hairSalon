@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
@@ -74,56 +75,74 @@ fun LazyRowPhotoL(navController: NavHostController) {
     Column(
         Modifier.fillMaxSize()
     ) {
-        LazyRow {
-            items(getLongFace()) { longFace ->
-                LongFaceItem(
-                    longFace = longFace
-                ) { selectedPicture = it }
+        LazyColumn {
+            item {
+                LazyRow {
+                    items(getLongFace()) { longFace ->
+                        LongFaceItem(
+                            longFace = longFace
+                        ) { selectedPicture = it }
+                    }
+                }
             }
-        }
 
-        Spacer(modifier = Modifier.padding(top = 20.dp))
+            item{Spacer(modifier = Modifier.padding(top = 20.dp))}
 
-        Row(
-            Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
-            //La imagen que seleccione el usuario estara en esta variable
-            selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
-                //De lo que ha elegido el user, cogemos la foto
-                Image(
-                    painter = painterResource(id = it.picture),
-                    //Desripción (que esto da igual)
-                    contentDescription = "La imagen que elija el user",
-                    //Asignamos el tamañp de la foto
-                    modifier = Modifier
-                        .padding(bottom = 13.dp)
-                        .size(400.dp)
-                )
+            item {
+                Row(
+                    Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    //La imagen que seleccione el usuario estara en esta variable
+                    selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
+                        //De lo que ha elegido el user, cogemos la foto
+                        Image(
+                            painter = painterResource(id = it.picture),
+                            //Desripción (que esto da igual)
+                            contentDescription = "La imagen que elija el user",
+                            //Asignamos el tamañp de la foto
+                            modifier = Modifier
+                                .padding(bottom = 13.dp)
+                                .size(400.dp)
+                        )
+                    }
+                }
             }
-        }
 
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(start = 10.dp, top = 5.dp),
+            item {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, top = 5.dp),
 
-            ) {
-            Text(
-                text = "Aquí vamos a poner un texto :)",
-                fontFamily = fontCourgette,
-            )
-        }
+                    ) {
+                    Text(
+                        text =
+                        "To harmonize a long and thin face, it is advisable to visually shorten the face and add lateral volume. " +
+                                "Avoid volume at the top, opt for a side parting or middle parting with bangs.\n\n" +
+                                "For the forehead, choose straight or side-swept bangs, avoid curtain bangs with straight hair.\n\n" +
+                                "On the jawline, consider bob cuts and chin-length bangs. The straight cut for medium length hair is favorable, " +
+                                "avoid the Bob cut without bangs.\n" +
+                                "Waves and side hairstyles are ideal for adding volume.\n\n" +
+                                "For short hair, avoid toupees that elongate the face.",
+                        fontFamily = fontCourgette,
+                        modifier = Modifier.padding(5.dp)
+                    )
+                }
+            }
 
-        Row(
-            Modifier.fillMaxWidth(),
-        ) {
-            Box(
-                Modifier.fillMaxSize(),
-                contentAlignment = Alignment.BottomEnd
-            ) {
-                FloatingActionRollBack(navController)
+            item {
+                Row(
+                    Modifier.fillMaxWidth(),
+                ) {
+                    Box(
+                        Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.BottomEnd
+                    ) {
+                        FloatingActionRollBack(navController)
+                    }
+                }
             }
         }
     }
