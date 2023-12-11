@@ -86,7 +86,7 @@ fun LazyRowPhotoL(navController: NavHostController) {
                 }
             }
 
-            item{Spacer(modifier = Modifier.padding(top = 20.dp))}
+            item { Spacer(modifier = Modifier.padding(top = 20.dp)) }
 
             item {
                 Row(

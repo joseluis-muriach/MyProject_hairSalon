@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Text
@@ -74,56 +75,77 @@ fun LazyRowPhotoR(navController: NavHostController) {
     Column(
         Modifier.fillMaxSize()
     ) {
-        LazyRow {
-            items(getRectangFace()) { RectangFace ->
-                RectangFaceItem(
-                    RectangFace = RectangFace
-                ) { selectedPicture = it }
+        LazyColumn {
+            item {
+                LazyRow {
+                    items(getRectangFace()) { RectangFace ->
+                        RectangFaceItem(
+                            RectangFace = RectangFace
+                        ) { selectedPicture = it }
+                    }
+                }
             }
-        }
 
-        Spacer(modifier = Modifier.padding(top = 20.dp))
-
-        Row(
-            Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
-        ) {
-            //La imagen que seleccione el usuario estara en esta variable
-            selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
-                //De lo que ha elegido el user, cogemos la foto
-                Image(
-                    painter = painterResource(id = it.picture),
-                    //Desripción (que esto da igual)
-                    contentDescription = "La imagen que elija el user",
-                    //Asignamos el tamañp de la foto
-                    modifier = Modifier
-                        .padding(bottom = 13.dp)
-                        .size(400.dp)
-                )
+            item {
+                Spacer(modifier = Modifier.padding(top = 20.dp))
             }
-        }
 
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(start = 10.dp, top = 5.dp),
+            item {
+                Row(
+                    Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    //La imagen que seleccione el usuario estara en esta variable
+                    selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
+                        //De lo que ha elegido el user, cogemos la foto
+                        Image(
+                            painter = painterResource(id = it.picture),
+                            //Desripción (que esto da igual)
+                            contentDescription = "La imagen que elija el user",
+                            //Asignamos el tamañp de la foto
+                            modifier = Modifier
+                                .padding(bottom = 13.dp)
+                                .size(400.dp)
+                        )
+                    }
+                }
+            }
 
-            ) {
-            Text(
-                text = "Aquí vamos a poner un texto :)",
-                fontFamily = fontCourgette,
-            )
-        }
+            item {
+                Row(
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, top = 5.dp),
 
-        Row(
-            Modifier.fillMaxWidth(),
-        ) {
-            Box(
-                Modifier.fillMaxSize(),
-                contentAlignment = Alignment.BottomEnd
-            ) {
-                FloatingActionRollBack(navController)
+                    ) {
+                    Text(
+                        text =
+                        "To harmonize a rectangular face, it is key to visually shorten the face, hide the angularity of " +
+                                "the chin and add lateral volume. Avoid a lot of volume at the top, preferring the side part over the middle " +
+                                "part.\n\n" +
+                                "Straight or side-swept bangs are ideal for the forehead, but avoid curtain bangs if your hair is straight.\n\n" +
+                                "In the jaw area, opt for blunt cuts to add volume and hide angularity.\n\n" +
+                                "Wavy hairstyles are recommended, avoiding straight hair that highlights the jaw.\n\n" +
+                                "For short hair, consider cuts such as the pixie or mullet style to shorten and give lateral volume, " +
+                                "avoiding the quiff that lengthens the face.",
+                        fontFamily = fontCourgette,
+                    )
+                }
+            }
+
+            item {
+
+                Row(
+                    Modifier.fillMaxWidth(),
+                ) {
+                    Box(
+                        Modifier.fillMaxSize(),
+                        contentAlignment = Alignment.BottomEnd
+                    ) {
+                        FloatingActionRollBack(navController)
+                    }
+                }
             }
         }
     }
