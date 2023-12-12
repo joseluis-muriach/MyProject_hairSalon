@@ -1,15 +1,21 @@
 package com.example.myproject_hairsalon.Items
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Create
+import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.DropdownMenu
@@ -28,10 +34,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -90,21 +98,21 @@ fun MyTopAppBar(navController: NavController) {
                 Modifier.width(150.dp)
             ) {
                 DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
-                    text = { Text(text = "Compartir") },
-                    onClick = { /*TODO*/ }, //No queremos que haga nada
+                    text = { Text(text = "Home") },
+                    onClick = { navController.navigate("MainCover") }, //No queremos que haga nada
                     leadingIcon = { //Un icono que se muestra antes del texto del elemento
                         Icon(
-                            imageVector = Icons.Filled.Share,
-                            contentDescription = "share"
+                            imageVector = Icons.Filled.Home,
+                            contentDescription = "home"
                         )
                     }
                 )
                 DropdownMenuItem( //Por cada icono tenemos que hacer un DropdownMenu
                     text = { Text(text = "Type faces") },
-                    onClick = { /*TODO*/ },
+                    onClick = { navController.navigate("Types faces") },
                     leadingIcon = {
                         Icon(
-                            imageVector = Icons.Filled.AccountBox,
+                            imageVector = Icons.Filled.AccountCircle,
                             contentDescription = "faces"
                         )
                     }
@@ -166,22 +174,12 @@ fun MyTopAppBarB(navController: NavController) {
                 Modifier.width(150.dp)
             ) {
                 DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
-                    text = { Text(text = "Compartir") },
-                    onClick = { /*TODO*/ }, //No queremos que haga nada
+                    text = { Text(text = "Home") },
+                    onClick = { navController.navigate("MainCover") }, //No queremos que haga nada
                     leadingIcon = { //Un icono que se muestra antes del texto del elemento
                         Icon(
-                            imageVector = Icons.Filled.Share,
-                            contentDescription = "share"
-                        )
-                    }
-                )
-                DropdownMenuItem( //Por cada icono tenemos que hacer un DropdownMenu
-                    text = { Text(text = "Type faces") },
-                    onClick = { /*TODO*/ },
-                    leadingIcon = {
-                        Icon(
-                            imageVector = Icons.Filled.AccountBox,
-                            contentDescription = "faces"
+                            imageVector = Icons.Filled.Home,
+                            contentDescription = "home"
                         )
                     }
                 )
@@ -242,22 +240,32 @@ fun MyTopAppBarC(navController: NavController) {
                 Modifier.width(150.dp)
             ) {
                 DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
-                    text = { Text(text = "Compartir") },
-                    onClick = { /*TODO*/ }, //No queremos que haga nada
+                    text = { Text(text = "Home") },
+                    onClick = { navController.navigate("MainCover") }, //No queremos que haga nada
                     leadingIcon = { //Un icono que se muestra antes del texto del elemento
                         Icon(
-                            imageVector = Icons.Filled.Share,
-                            contentDescription = "share"
+                            imageVector = Icons.Filled.Home,
+                            contentDescription = "home"
                         )
                     }
                 )
-                DropdownMenuItem( //Por cada icono tenemos que hacer un DropdownMenu
-                    text = { Text(text = "Type faces") },
-                    onClick = { /*TODO*/ },
-                    leadingIcon = {
+                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                    text = { Text(text = "How calculate") },
+                    onClick = { navController.navigate("MainHowCalcFace") }, //No queremos que haga nada
+                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
                         Icon(
-                            imageVector = Icons.Filled.AccountBox,
-                            contentDescription = "faces"
+                            imageVector = Icons.Filled.PlayArrow,
+                            contentDescription = "video calculate face"
+                        )
+                    }
+                )
+                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                    text = { Text(text = "Calculate face") },
+                    onClick = { navController.navigate("Calculate your type face") }, //No queremos que haga nada
+                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                        Icon(
+                            imageVector = Icons.Filled.Create,
+                            contentDescription = "Calculate face"
                         )
                     }
                 )
@@ -322,11 +330,11 @@ fun MyTopAppBarCM(
             var showMenu by remember { mutableStateOf(false) }
             //Haciendo click el lambda cambia de false a true o viceversa
             IconButton(onClick = { showMenu = !showMenu }) {
-                Icon(
-                    imageVector = Icons.Filled.MoreVert,
-                    contentDescription = "Desplegable de dos opciones",
-                    tint = Color.Black
-                )
+//                Icon(
+//                    imageVector = Icons.Filled.MoreVert,
+//                    contentDescription = "Desplegable de dos opciones",
+//                    tint = Color.Black
+//                )
             }
             //Creamos el drop menu por que tenemos varias opciones dentro de MoreVert
             DropdownMenu(
