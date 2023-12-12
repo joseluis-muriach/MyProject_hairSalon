@@ -7,6 +7,9 @@ import androidx.navigation.NavHostController
 import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.Cover.MainCoverVertical
 
+/*
+In this screen we can see the navegation to MainCover in form vertical or horizontal
+*/
 @Composable
 fun MainCover(navController: NavHostController){
     //With this variable we can controller the orientation of the mobile phone

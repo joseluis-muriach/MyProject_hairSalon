@@ -7,6 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.navigation.NavHostController
 
+/*
+In this Screen also we can see two form, the navegability to VideoCalculate in vertical form or horizontal form
+*/
 @Composable
 fun MainHowCalcFace(navController: NavHostController){
     //With this variable we can controller the orientation of the mobile phone

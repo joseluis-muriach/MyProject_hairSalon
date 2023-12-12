@@ -34,10 +34,13 @@ import androidx.navigation.NavController
 import com.example.myproject_hairsalon.R
 import kotlinx.coroutines.delay
 
+/*
+In this screen is the start screen, the first animation screen that we can see when start the application
+*/
 @Composable
 fun MainStartScreen(navController: NavController) {
     val my_name = "Jose Luis Muriach Martin"
-    val value by rememberInfiniteTransition().animateFloat(
+    val value by rememberInfiniteTransition(label = "").animateFloat(
         initialValue = 0.5f,
         targetValue = 1f,
         animationSpec = infiniteRepeatable(

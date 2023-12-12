@@ -32,14 +32,13 @@ class MainProject : ComponentActivity() {
             MyProject_hairSalonTheme {
                 //We need this variable by create the navigation
                 val navController = rememberNavController()
-                //NavHost(navController = navController, startDestination = "MainCover") {
                 NavHost(navController = navController, startDestination = "MainStartScreen") {
-                    composable(
-                        "MainStartScreen",
-                        //Transition between screens
-                        exitTransition = {
+
+                    //Transition between screens
+                    composable("MainStartScreen", exitTransition =
+                    {
                             fadeOut(animationSpec = tween(1000))
-                        },
+                    },
                     ) {
                         MainStartScreen(navController)
                     }
