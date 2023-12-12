@@ -48,12 +48,14 @@ data class Face(
     }
 }
 
-
 fun esAlargado(
     face: Face
 ): Boolean {
-    var result = false
+    val range = 0.6
+    val minimumRange = face.pointA - range
+    val maximumRange = face.pointA + range
     val comparison = face.pointE * 3
+    var result = false
 
     if (comparison > face.pointD) {
         result = true
@@ -97,7 +99,6 @@ fun esCuadrado( //Este deberia ser parecido a, b, c y d
     return result
 }
 
-
 fun esTriangular(
     face: Face
 ): Boolean {
@@ -108,7 +109,6 @@ fun esTriangular(
     }
     return result
 }
-
 
 fun esCorazon(
     face: Face

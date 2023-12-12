@@ -3,6 +3,8 @@ package com.example.myproject_hairsalon
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeOut
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -21,6 +23,7 @@ import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.Lazy
 import com.example.myproject_hairsalon.Cover.MainCoverVertical
 import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
+import com.example.myreminders_garciadopcio.MainStartScreen
 
 class MainProject : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +32,18 @@ class MainProject : ComponentActivity() {
             MyProject_hairSalonTheme {
                 //We need this variable by create the navigation
                 val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "MainCover") {
+                //NavHost(navController = navController, startDestination = "MainCover") {
+                NavHost(navController = navController, startDestination = "MainStartScreen") {
+                    composable(
+                        "MainStartScreen",
+                        //Transition between screens
+                        exitTransition = {
+                            fadeOut(animationSpec = tween(1000))
+                        },
+                    ) {
+                        MainStartScreen(navController)
+                    }
+
                     //Main Cover
                     composable("MainCover") { MainCover(navController) }
                     composable("MainCoverVertical") { MainCoverVertical(navController) }

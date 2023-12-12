@@ -154,21 +154,23 @@ fun CalculateMyFace(navController: NavController) {
                 ){
                     Button(
                         onClick = {
-                            val userFace =
-                                Face(
-                                    pointA.toFloat(),
-                                    pointB.toFloat(),
-                                    pointC.toFloat(),
-                                    pointD.toFloat(),
-                                    pointE.toFloat()
-                                )
-                            textResult = Faces(userFace)
+                            if (areInputsValid(pointA,pointB,pointC,pointD,pointE)) {
+                                val userFace =
+                                    Face(
+                                        pointA.toFloat(),
+                                        pointB.toFloat(),
+                                        pointC.toFloat(),
+                                        pointD.toFloat(),
+                                        pointE.toFloat()
+                                    )
+                                textResult = Faces(userFace)
 
-                            pointA = ""
-                            pointB = ""
-                            pointC = ""
-                            pointD = ""
-                            pointE = ""
+                                pointA = ""
+                                pointB = ""
+                                pointC = ""
+                                pointD = ""
+                                pointE = ""
+                            }
                         },
                         modifier =
                         Modifier
@@ -217,3 +219,11 @@ fun CalculateMyFace(navController: NavController) {
         }
     }
 }
+
+//This function is for calculate if there are date in the boxes
+private fun areInputsValid(pointA: String, pointB: String, pointC: String, pointD: String, pointE: String): Boolean {
+    return pointA.isNotBlank() && pointB.isNotBlank() &&
+            pointC.isNotBlank() && pointD.isNotBlank() && pointE.isNotBlank()
+}
+
+
