@@ -47,6 +47,12 @@ fun getHeartFace(): List<HeartFace> {
         HeartFace(
             R.drawable.h3
         ),
+        HeartFace(
+            R.drawable.h4
+        ),
+        HeartFace(
+            R.drawable.h5
+        ),
     )
 }
 

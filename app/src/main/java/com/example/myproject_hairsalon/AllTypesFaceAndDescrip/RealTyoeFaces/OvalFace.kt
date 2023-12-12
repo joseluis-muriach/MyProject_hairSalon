@@ -47,6 +47,12 @@ fun getOvalFace(): List<OvalFace> {
         OvalFace(
             R.drawable.ov3
         ),
+        OvalFace(
+            R.drawable.ov4
+        ),
+        OvalFace(
+            R.drawable.ov5
+        ),
     )
 }
 

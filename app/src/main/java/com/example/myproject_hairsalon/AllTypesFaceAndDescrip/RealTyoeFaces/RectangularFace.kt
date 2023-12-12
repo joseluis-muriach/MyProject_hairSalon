@@ -46,6 +46,12 @@ fun getRectangFace(): List<RectangFace> {
         RectangFace(
             R.drawable.r3
         ),
+        RectangFace(
+            R.drawable.r4
+        ),
+        RectangFace(
+            R.drawable.r5
+        ),
     )
 }
 

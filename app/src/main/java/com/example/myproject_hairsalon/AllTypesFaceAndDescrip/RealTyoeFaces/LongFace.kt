@@ -41,7 +41,13 @@ fun getLongFace(): List<LongFace> {
             R.drawable.a1
         ),
         LongFace(
+            R.drawable.a4
+        ),
+        LongFace(
             R.drawable.a2
+        ),
+        LongFace(
+            R.drawable.a5
         ),
         LongFace(
             R.drawable.a3

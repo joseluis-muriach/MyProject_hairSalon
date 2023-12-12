@@ -46,6 +46,12 @@ fun getSquareFace(): List<SquareFace> {
         SquareFace(
             R.drawable.c3
         ),
+        SquareFace(
+            R.drawable.c4
+        ),
+        SquareFace(
+            R.drawable.c5
+        ),
     )
 }
 

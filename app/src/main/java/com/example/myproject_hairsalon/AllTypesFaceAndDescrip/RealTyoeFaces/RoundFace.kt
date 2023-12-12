@@ -46,6 +46,12 @@ fun getRoundFace(): List<RoundFace> {
         RoundFace(
             R.drawable.red3
         ),
+        RoundFace(
+            R.drawable.red4
+        ),
+        RoundFace(
+            R.drawable.red5
+        ),
     )
 }
 

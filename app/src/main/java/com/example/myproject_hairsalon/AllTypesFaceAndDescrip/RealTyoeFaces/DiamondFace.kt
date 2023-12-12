@@ -47,6 +47,12 @@ fun getDiamondFace(): List<DiamondFace> {
         DiamondFace(
             R.drawable.d3
         ),
+        DiamondFace(
+            R.drawable.d4
+        ),
+        DiamondFace(
+            R.drawable.d5
+        ),
     )
 }
 
