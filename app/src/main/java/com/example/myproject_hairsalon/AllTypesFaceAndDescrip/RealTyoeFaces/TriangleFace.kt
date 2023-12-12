@@ -39,13 +39,13 @@ data class TriangleFace(
 fun getTriangleFace(): List<TriangleFace> {
     return listOf(
         TriangleFace(
-            R.drawable.p1
+            R.drawable.p3
         ),
         TriangleFace(
             R.drawable.p2
         ),
         TriangleFace(
-            R.drawable.p3
+            R.drawable.p1
         ),
     )
 }
@@ -82,7 +82,14 @@ fun LazyRowPhotoT(navController: NavHostController) {
                     items(getTriangleFace()) { TriangleFace ->
                         TriangleFaceItem(
                             TriangleFace = TriangleFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }

@@ -39,13 +39,13 @@ data class DiamondFace(
 fun getDiamondFace(): List<DiamondFace> {
     return listOf(
         DiamondFace(
-            R.drawable.c1
+            R.drawable.d1
         ),
         DiamondFace(
-            R.drawable.c2
+            R.drawable.d2
         ),
         DiamondFace(
-            R.drawable.c3
+            R.drawable.d3
         ),
     )
 }
@@ -82,7 +82,14 @@ fun LazyRowPhotoD(navController: NavHostController) {
                     items(getDiamondFace()) { DiamondFace ->
                         DiamondFaceItem(
                             DiamondFace = DiamondFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }

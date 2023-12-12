@@ -81,7 +81,14 @@ fun LazyRowPhotoC(navController: NavHostController) {
                     items(getSquareFace()) { SquareFace ->
                         SquareFaceItem(
                             SquareFace = SquareFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }

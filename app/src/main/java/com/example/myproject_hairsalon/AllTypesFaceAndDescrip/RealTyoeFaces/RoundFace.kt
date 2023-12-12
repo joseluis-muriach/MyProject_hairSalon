@@ -81,7 +81,14 @@ fun LazyRowPhotoRo(navController: NavHostController) {
                     items(getRoundFace()) { RoundFace ->
                         RoundFaceItem(
                             RoundFace = RoundFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }

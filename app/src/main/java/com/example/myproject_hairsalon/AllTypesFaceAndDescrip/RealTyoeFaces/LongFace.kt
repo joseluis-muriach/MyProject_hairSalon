@@ -81,7 +81,14 @@ fun LazyRowPhotoL(navController: NavHostController) {
                     items(getLongFace()) { longFace ->
                         LongFaceItem(
                             longFace = longFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }

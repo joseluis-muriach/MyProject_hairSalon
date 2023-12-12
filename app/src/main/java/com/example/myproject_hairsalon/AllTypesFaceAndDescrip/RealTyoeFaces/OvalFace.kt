@@ -39,13 +39,13 @@ data class OvalFace(
 fun getOvalFace(): List<OvalFace> {
     return listOf(
         OvalFace(
-            R.drawable.c1
+            R.drawable.ov1
         ),
         OvalFace(
-            R.drawable.c2
+            R.drawable.ov2
         ),
         OvalFace(
-            R.drawable.c3
+            R.drawable.ov3
         ),
     )
 }
@@ -82,7 +82,14 @@ fun LazyRowPhotoO(navController: NavHostController) {
                     items(getOvalFace()) { OvalFace ->
                         OvalFaceItem(
                             OvalFace = OvalFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }

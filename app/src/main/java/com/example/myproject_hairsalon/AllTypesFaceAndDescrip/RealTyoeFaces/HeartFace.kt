@@ -82,7 +82,14 @@ fun LazyRowPhotoH(navController: NavHostController) {
                     items(getHeartFace()) { HeartFace ->
                         HeartFaceItem(
                             HeartFace = HeartFace
-                        ) { selectedPicture = it }
+                        ) {
+                            if (selectedPicture == it) {
+                                // Si la imagen seleccionada es la misma, ocultarla
+                                selectedPicture = null
+                            } else {
+                                selectedPicture = it
+                            }
+                        }
                     }
                 }
             }
