@@ -39,13 +39,13 @@ data class HeartFace(
 fun getHeartFace(): List<HeartFace> {
     return listOf(
         HeartFace(
-            R.drawable.c1
+            R.drawable.h1
         ),
         HeartFace(
-            R.drawable.c2
+            R.drawable.h2
         ),
         HeartFace(
-            R.drawable.c3
+            R.drawable.h3
         ),
     )
 }

@@ -39,13 +39,13 @@ data class TriangleFace(
 fun getTriangleFace(): List<TriangleFace> {
     return listOf(
         TriangleFace(
-            R.drawable.c1
+            R.drawable.p1
         ),
         TriangleFace(
-            R.drawable.c2
+            R.drawable.p2
         ),
         TriangleFace(
-            R.drawable.c3
+            R.drawable.p3
         ),
     )
 }
