@@ -1,14 +1,10 @@
-package com.example.myreminders_garciadopcio
-
 import androidx.compose.animation.core.LinearEasing
-import androidx.compose.animation.core.RepeatMode
-import androidx.compose.animation.core.animateFloat
-import androidx.compose.animation.core.infiniteRepeatable
-import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
@@ -16,83 +12,63 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.BottomCenter
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myproject_hairsalon.R
+import com.example.myproject_hairsalon.ui.theme.fontCourgette
 import kotlinx.coroutines.delay
 
-/*
-In this screen is the start screen, the first animation screen that we can see when start the application
-*/
 @Composable
 fun MainStartScreen(navController: NavController) {
-    val my_name = "Jose Luis Muriach Martin"
-    val value by rememberInfiniteTransition(label = "").animateFloat(
-        initialValue = 0.5f,
+    val textWithName = "Created by:\nJose Luis Muriach Martin"
+
+    // Utilizamos animateFloatAsState para obtener el valor animado como un estado
+    val value by animateFloatAsState(
         targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(
-                durationMillis = 1500,
-                easing = LinearEasing
-            ),
-            repeatMode = RepeatMode.Reverse
+        animationSpec = tween(
+            durationMillis = 2000,
+            easing = LinearEasing
         ), label = ""
     )
-    // Esta función muestra la pantalla de inicio.
 
-    // Puedes personalizar este contenido según tus necesidades.
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(modifier = Modifier
-            .graphicsLayer {
-                scaleX = value
-                scaleY = value
-            }
+    Box {
+        //Aplicamos la animación al Modifier para controlar la posición vertical de la imagen
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxSize()
+                .graphicsLayer {
+                    scaleX = value
+                    scaleY = value
+                },
+            horizontalArrangement = Arrangement.Center
         ) {
             Image(
                 painter = painterResource(id = R.drawable.logoandrea2),
-                contentDescription = null
+                contentDescription = "el logo que tenemos en la portada"
             )
         }
 
         Text(
-            text = buildAnnotatedString {
-                withStyle(style = SpanStyle(fontSize = 10.sp)) {
-                    append("Create by:\n")
-                }
-                withStyle(style = SpanStyle(fontWeight = FontWeight.Bold,fontSize = 15.sp)) {
-                    append(my_name)
-                }
-            },
+            text = textWithName,
+            fontSize = 15.sp,
+            fontFamily = fontCourgette,
             modifier = Modifier
-                .align(Alignment.BottomCenter)
-                .padding(bottom = 10.dp),
+                .align(BottomCenter)
+                .padding(10.dp),
             textAlign = TextAlign.Center
-//            fontFamily = FontTittle
         )
     }
 
     // Utilizamos LaunchedEffect para iniciar un temporizador y cambiar a la siguiente pantalla.
     LaunchedEffect(true) {
-        delay(2000) // Cambié el tiempo de espera a 2 segundos para el ejemplo
-        // Navegamos a la pantalla "Reminders_create" después de que ha pasado el tiempo deseado.
+        delay(2000)
         navController.navigate("MainCover")
     }
 }

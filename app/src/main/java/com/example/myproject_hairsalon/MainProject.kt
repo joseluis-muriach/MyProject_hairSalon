@@ -1,10 +1,11 @@
 package com.example.myproject_hairsalon
 
+import MainStartScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeOut
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -23,7 +24,6 @@ import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.RealTyoeFaces.Lazy
 import com.example.myproject_hairsalon.Cover.MainCoverVertical
 import com.example.myproject_hairsalon.Cover.MainCoverLandScape
 import com.example.myproject_hairsalon.ui.theme.MyProject_hairSalonTheme
-import com.example.myreminders_garciadopcio.MainStartScreen
 
 class MainProject : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +35,21 @@ class MainProject : ComponentActivity() {
                 NavHost(navController = navController, startDestination = "MainStartScreen") {
 
                     //Transition between screens
-                    composable("MainStartScreen", exitTransition =
-                    {
-                            fadeOut(animationSpec = tween(1000))
-                    },
+                    composable("MainStartScreen",
+                        exitTransition = {
+                            slideOutOfContainer(
+                                towards = AnimatedContentTransitionScope.SlideDirection.Up,
+                                animationSpec = tween(1000)
+                            )
+                            // fadeIn(animationSpec = tween(900))  // Si esta línea no se necesita, puedes comentarla o eliminarla
+                        },
+                        // Otros parámetros de la composable...
+//                        exitTransition = {
+//                            slideIntoContainer(
+//                                towards = AnimatedContentTransitionScope.SlideDirection.Companion.Up,
+//                                animationSpec = tween(4000)
+//                            )
+//                    },
                     ) {
                         MainStartScreen(navController)
                     }
