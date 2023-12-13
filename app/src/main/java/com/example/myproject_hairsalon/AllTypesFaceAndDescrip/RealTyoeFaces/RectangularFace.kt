@@ -31,10 +31,14 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
+/*
+In this screen we find the characteristics of the Rectangular Face
+*/
 data class RectangFace(
     @DrawableRes var picture: Int
 )
 
+//All photos in this class
 fun getRectangFace(): List<RectangFace> {
     return listOf(
         RectangFace(
@@ -55,6 +59,7 @@ fun getRectangFace(): List<RectangFace> {
     )
 }
 
+//How we will see when click in a photo
 @Composable
 fun RectangFaceItem(RectangFace: RectangFace, onItemSelected: (RectangFace) -> Unit) {
     Row(
@@ -74,6 +79,7 @@ fun RectangFaceItem(RectangFace: RectangFace, onItemSelected: (RectangFace) -> U
     }
 }
 
+//The horizontal list where we will see all pictures of rectangular face and the design of the class
 @Composable
 fun LazyRowPhotoR(navController: NavHostController) {
     var selectedPicture: RectangFace? by remember { mutableStateOf(null) }
@@ -88,11 +94,10 @@ fun LazyRowPhotoR(navController: NavHostController) {
                         RectangFaceItem(
                             RectangFace = RectangFace
                         ) {
-                            if (selectedPicture == it) {
-                                // Si la imagen seleccionada es la misma, ocultarla
-                                selectedPicture = null
+                            selectedPicture = if (selectedPicture == it) { //If the picture is equal, hidden it
+                                null
                             } else {
-                                selectedPicture = it
+                                it
                             }
                         }
                     }
@@ -109,9 +114,9 @@ fun LazyRowPhotoR(navController: NavHostController) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    //La imagen que seleccione el usuario estara en esta variable
-                    selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
-                        //De lo que ha elegido el user, cogemos la foto
+                    //In this variable the photo will be saved when the user clicks on it
+                    selectedPicture?.let {//If the value is not null, we do the following
+                        //Take the user photo (when he clicked)
                         Image(
                             painter = painterResource(id = it.picture),
                             //Desripción (que esto da igual)

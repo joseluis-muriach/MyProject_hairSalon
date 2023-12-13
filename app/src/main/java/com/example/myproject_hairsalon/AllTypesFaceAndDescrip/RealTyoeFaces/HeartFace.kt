@@ -31,11 +31,14 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-/*TENGO QUE CAMBIAR LAS FOTOS*/
+/*
+In this screen we find the characteristics of the Heart Face
+*/
 data class HeartFace(
     @DrawableRes var picture: Int
 )
 
+//All photos in this class
 fun getHeartFace(): List<HeartFace> {
     return listOf(
         HeartFace(
@@ -56,6 +59,7 @@ fun getHeartFace(): List<HeartFace> {
     )
 }
 
+//How we will see when click in a photo
 @Composable
 fun HeartFaceItem(HeartFace: HeartFace, onItemSelected: (HeartFace) -> Unit) {
     Row(
@@ -75,6 +79,7 @@ fun HeartFaceItem(HeartFace: HeartFace, onItemSelected: (HeartFace) -> Unit) {
     }
 }
 
+//The horizontal list where we will see all pictures of heart face and the design of the class
 @Composable
 fun LazyRowPhotoH(navController: NavHostController) {
     var selectedPicture: HeartFace? by remember { mutableStateOf(null) }
@@ -89,11 +94,10 @@ fun LazyRowPhotoH(navController: NavHostController) {
                         HeartFaceItem(
                             HeartFace = HeartFace
                         ) {
-                            if (selectedPicture == it) {
-                                // Si la imagen seleccionada es la misma, ocultarla
-                                selectedPicture = null
+                            selectedPicture = if (selectedPicture == it) {//If the picture is equal, hidden it
+                                null
                             } else {
-                                selectedPicture = it
+                                it
                             }
                         }
                     }
@@ -110,14 +114,12 @@ fun LazyRowPhotoH(navController: NavHostController) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    //La imagen que seleccione el usuario estara en esta variable
-                    selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
-                        //De lo que ha elegido el user, cogemos la foto
+                    //In this variable the photo will be saved when the user clicks on it
+                    selectedPicture?.let {//If the value is not null, we do the following
+                        //Take the user photo (when he clicked)
                         Image(
                             painter = painterResource(id = it.picture),
-                            //Desripción (que esto da igual)
                             contentDescription = "La imagen que elija el user",
-                            //Asignamos el tamañp de la foto
                             modifier = Modifier
                                 .padding(bottom = 13.dp)
                                 .size(400.dp)
