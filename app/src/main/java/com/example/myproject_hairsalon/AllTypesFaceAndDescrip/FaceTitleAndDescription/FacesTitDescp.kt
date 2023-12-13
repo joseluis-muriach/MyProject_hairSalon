@@ -23,77 +23,78 @@ import androidx.navigation.NavController
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-//Data base
-data class itemFaceTitDescp(
+/*
+In this class we have the data class for create a face, also we can see the description of all faces of the class
+type faces
+*/
+data class ItemFaceTitDescp(
     @DrawableRes val photo: Int,
     val text: String,
     val description: String
 )
 
 //List of Photo, title and description
-fun getTypesOfFaces(): List<itemFaceTitDescp> {
+fun getTypesOfFaces(): List<ItemFaceTitDescp> {
     return listOf(
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.alargado,
-            "ROSTRO ALARGADO",
-            "Se da cuando la frente es tan ancha como la mandibula y, además el rostro es " +
-                    "alargado pero fino"
+            "LONG FACE",
+            "It occurs when the forehead is as wide as the jaw and, in addition, " +
+                    "the face is elongated but thin"
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.rectangular,
-            "ROSTRO RECTANGULAR",
-            "Se da cuando la cara es mas larga que ancha, " +
-                    "con una frente alta y una mandibula alargada"
+            "RECTANGULAR FACE",
+            "It occurs when the face is longer than wide with a high forehead and an elongated jaw."
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.redondo,
-            "ROSTRO REDONDO",
-            "Se da cuando la longitud y el ancho de la cara son " +
-                    "aproximadamente iguales, con mejillas mas llenas y una " +
-                    "mandibula redondeada"
+            "ROUND FACE",
+            "It occurs when the length and width of the face are approximately equal, " +
+                    "with fuller cheeks and a rounded jaw."
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.cuadrado,
-            "ROSTRO CUADRADO",
-            "Se da cuando la frente, las mejillas y la mandibula tienen líneas " +
-                    "similares en términos de anchura, creando una apariencia angular"
+            "SQUARE FACE",
+            "It occurs when the forehead, cheeks and jaw have similar lines in terms of width, " +
+                    "creating an angular appearance"
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.pera_triangular,
-            "ROSTRO PERA/ROSTRO TRIANGULAR",
-            "Se da cuando la frente es estrecha y la mandíbula es ancha, creando una forma " +
-                    "triangular invertida"
+            "TRIANGLE FACE",
+            "It occurs when the forehead is narrow and the jaw is wide, " +
+                    "creating an inverted triangular shape."
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.corazon,
-            "ROSTRO CORAZÓN",
-            "Se da cuando la frente es ancha, pero la barbilla es puntiaguda, " +
-                    "creando una forma similar a un corazón invertido."
+            "HEART FACE",
+            "It occurs when the forehead is wide, but the chin is pointed, " +
+                    "creating a shape similar to an inverted heart."
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.triangulo_v,
-            "R. TRIÁNGULO INVERTIDO",
-            "Se da cuando la frente es más ancha que la mandíbula, creando una forma " +
-                    "triangular invertida."
+            "INVERTED TRIANGLE F.",
+            "It occurs when the forehead is wider than the jaw, creating an " +
+                    "inverted triangular shape."
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.diamante,
-            "ROSTRO DIAMANTE",
-            "Se da cuando la frente y la barbilla son más estrechas que las mejillas, " +
-                    "con pómulos prominentes."
+            "DIAMOND FACE",
+            "It occurs when the forehead and chin are narrower than the cheeks, " +
+                    "with prominent cheekbones."
         ),
-        itemFaceTitDescp(
+        ItemFaceTitDescp(
             R.drawable.ovalado,
-            "ROSTRO OVALADO",
-            "Se da cuando la frente es ligeramente más ancha que la barbilla, " +
-                    "con una forma suave y curvada."
+            "OVAL FACE",
+            "It occurs when the forehead is slightly wider than the chin, " +
+                    "with a soft and curved shape."
         ),
     )
 }
 
 //Function where create the format
 @Composable
-fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp, onItemClick: () -> Unit) {
+fun ItemPhotoAndText(typesOfFaces: ItemFaceTitDescp, onItemClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxSize()
@@ -127,6 +128,7 @@ fun ItemPhotoAndText(typesOfFaces: itemFaceTitDescp, onItemClick: () -> Unit) {
     }
 }
 
+//Lazy colum of the real photos when click in a type face
 @Composable
 fun LazyColumItems(navController: NavController) {
     LazyColumn(
@@ -137,28 +139,28 @@ fun LazyColumItems(navController: NavController) {
                 typesOfFaces = allItems,
                 onItemClick = {
                     when(allItems.text) {
-                        "ROSTRO ALARGADO" -> {
+                        "LONG FACE" -> {
                             navController.navigate("LazyRowPhotoL")
                         }
-                        "ROSTRO RECTANGULAR" -> {
+                        "RECTANGULAR FACE" -> {
                             navController.navigate("LazyRowPhotoR")
                         }
-                        "ROSTRO REDONDO" -> {
+                        "ROUND FACE" -> {
                             navController.navigate("LazyRowPhotoRo")
                         }
-                        "ROSTRO CUADRADO" -> {
+                        "SQUARE FACE" -> {
                             navController.navigate("LazyRowPhotoC")
                         }
-                        "ROSTRO PERA/ROSTRO TRIANGULAR" -> {
+                        "TRIANGLE FACE" -> {
                             navController.navigate("LazyRowPhotoT")
                         }
-                        "ROSTRO CORAZÓN" -> {
+                        "HEART FACE" -> {
                             navController.navigate("LazyRowPhotoH")
                         }
-                        "ROSTRO DIAMANTE" -> {
+                        "DIAMOND FACE" -> {
                             navController.navigate("LazyRowPhotoD")
                         }
-                        "ROSTRO OVALADO" -> {
+                        "OVAL FACE" -> {
                             navController.navigate("LazyRowPhotoO")
                         }
                     }
