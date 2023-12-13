@@ -86,13 +86,25 @@ fun FloatingButton(navController: NavHostController, url: String) {
         ), label = ""
     )
 
-    val colors = listOf(
-        Color(0xFFAB41F8),
-        Color(0xFFE91E63),
-        Color(0xFFFF5722),
-        Color(0xFFFFC107),
-        //Color(0xFFFF5722),
+    val valueRotation by rememberInfiniteTransition(label = "").animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(
+                durationMillis = 1000,
+                easing = LinearEasing
+            ),
+            //repeatMode = RepeatMode.Reverse
+        ), label = ""
     )
+
+    val colors =
+        listOf(
+            Color(0xFFAB41F8),
+            Color(0xFFE91E63),
+            Color(0xFFFF5722),
+            Color(0xFFFFC107),
+        )
     val gradientBrush by remember {
         mutableStateOf(
             Brush.horizontalGradient(
@@ -113,9 +125,9 @@ fun FloatingButton(navController: NavHostController, url: String) {
             .padding(16.dp)
             //Esto nos hace falta para poner el borde de color
             .drawBehind {
-                rotate(value) {
+                rotate(valueRotation) {
                     drawCircle(
-                        gradientBrush, style = Stroke(width = 12.dp.value)
+                        gradientBrush, style = Stroke(width = 20.dp.value)
                     )
                 }
             },//Hasta aquí
@@ -135,7 +147,6 @@ fun FloatingButton(navController: NavHostController, url: String) {
                         pivotFractionY = 0.5f
                     ),
                     rotationZ = value
-
                 )
         )
     }
@@ -166,7 +177,6 @@ fun FloatingActionRollBack(navController: NavController) {
             tint = Color.Black,
             modifier = Modifier
                 .size(25.dp)
-
         )
     }
 }
