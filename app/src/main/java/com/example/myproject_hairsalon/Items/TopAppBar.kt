@@ -70,7 +70,11 @@ fun MyTopAppBar(navController: NavController) {
         },
         colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
         navigationIcon = { //Buttom that make the action
-            IconButton(onClick = { navController.navigate("MainCover") }) { //En el onclick, en este caso no hará nada
+            IconButton(
+                onClick = {
+                    navController.navigate("MainCover")
+                }
+            ) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
                     contentDescription = "",
@@ -78,10 +82,10 @@ fun MyTopAppBar(navController: NavController) {
                 )
             }
         },
-        actions = { //Para poner los tres puntos o cualquier icono a la derecha
-            //Variable la cual la creamos por que en el MoreVert tenemos varias opciones
+        actions = { //For add the three points menu or other icon to right side
+            //Create this variable because in MoreVert has more options
             var showMenu by remember { mutableStateOf(false) }
-            //Haciendo click el lambda cambia de false a true o viceversa
+            //If click in lambda, this change to false or true or true to false
             IconButton(onClick = { showMenu = !showMenu }) {
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
@@ -89,25 +93,25 @@ fun MyTopAppBar(navController: NavController) {
                     tint = Color.Black
                 )
             }
-            //Creamos el drop menu por que tenemos varias opciones dentro de MoreVert
+            //Create the drop menu because we have more options inside to MoreVert
             DropdownMenu(
-                expanded = showMenu, //Controla si el menu está expandido o no
-                //Un lambda que se ejecuta cuando el usuario cierra el menú
+                expanded = showMenu, //This controlate if the manu is expanded or not
+                //A lambda be execute when the user close the menu
                 onDismissRequest = { showMenu = false },
-                //Modificador que establece el ancho del menú desplegable
+                //Modifier that sets the width of the dropdown menu
                 Modifier.width(150.dp)
             ) {
-                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                DropdownMenuItem( //This line creates a dropdown menu item.
                     text = { Text(text = "Home") },
-                    onClick = { navController.navigate("MainCover") }, //No queremos que haga nada
-                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                    onClick = { navController.navigate("MainCover") },
+                    leadingIcon = { //A icon that show before the text of element
                         Icon(
                             imageVector = Icons.Filled.Home,
                             contentDescription = "home"
                         )
                     }
                 )
-                DropdownMenuItem( //Por cada icono tenemos que hacer un DropdownMenu
+                DropdownMenuItem(
                     text = { Text(text = "Type faces") },
                     onClick = { navController.navigate("Types faces") },
                     leadingIcon = {
@@ -127,9 +131,7 @@ fun MyTopAppBar(navController: NavController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTopAppBarB(navController: NavController) {
-//La top bar siempre va en el Scaffol que lo pondremos en nuestra pantalla principal, no en el MAIN
     TopAppBar(
-        //Siempre pondremos el titulo primero y luego lo demas
         title = {
             Row(
                 Modifier.fillMaxWidth(),
@@ -145,8 +147,8 @@ fun MyTopAppBarB(navController: NavController) {
             }
         },
         colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
-        navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
-            IconButton(onClick = { navController.navigate("MainCover") }) { //En el onclick, en este caso no hará nada
+        navigationIcon = {
+            IconButton(onClick = { navController.navigate("MainCover") }) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
                     contentDescription = "",
@@ -154,10 +156,9 @@ fun MyTopAppBarB(navController: NavController) {
                 )
             }
         },
-        actions = { //Para poner los tres puntos o cualquier icono a la derecha
-            //Variable la cual la creamos por que en el MoreVert tenemos varias opciones
+        actions = {
             var showMenu by remember { mutableStateOf(false) }
-            //Haciendo click el lambda cambia de false a true o viceversa
+
             IconButton(onClick = { showMenu = !showMenu }) {
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
@@ -165,18 +166,16 @@ fun MyTopAppBarB(navController: NavController) {
                     tint = Color.Black
                 )
             }
-            //Creamos el drop menu por que tenemos varias opciones dentro de MoreVert
+
             DropdownMenu(
-                expanded = showMenu, //Controla si el menu está expandido o no
-                //Un lambda que se ejecuta cuando el usuario cierra el menú
+                expanded = showMenu,
                 onDismissRequest = { showMenu = false },
-                //Modificador que establece el ancho del menú desplegable
                 Modifier.width(150.dp)
             ) {
-                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                DropdownMenuItem(
                     text = { Text(text = "Home") },
-                    onClick = { navController.navigate("MainCover") }, //No queremos que haga nada
-                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                    onClick = { navController.navigate("MainCover") },
+                    leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Home,
                             contentDescription = "home"
@@ -193,9 +192,7 @@ fun MyTopAppBarB(navController: NavController) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTopAppBarC(navController: NavController) {
-//La top bar siempre va en el Scaffol que lo pondremos en nuestra pantalla principal, no en el MAIN
     TopAppBar(
-        //Siempre pondremos el titulo primero y luego lo demas
         title = {
             Row(
                 Modifier.fillMaxWidth(),
@@ -211,8 +208,8 @@ fun MyTopAppBarC(navController: NavController) {
             }
         },
         colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
-        navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
-            IconButton(onClick = { navController.navigate("MainCover") }) { //En el onclick, en este caso no hará nada
+        navigationIcon = {
+            IconButton(onClick = { navController.navigate("MainCover") }) {
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,
                     contentDescription = "",
@@ -220,49 +217,46 @@ fun MyTopAppBarC(navController: NavController) {
                 )
             }
         },
-        actions = { //Para poner los tres puntos o cualquier icono a la derecha
-            //Variable la cual la creamos por que en el MoreVert tenemos varias opciones
+        actions = {
             var showMenu by remember { mutableStateOf(false) }
-            //Haciendo click el lambda cambia de false a true o viceversa
             IconButton(onClick = { showMenu = !showMenu }) {
+
                 Icon(
                     imageVector = Icons.Filled.MoreVert,
                     contentDescription = "Desplegable de dos opciones",
                     tint = Color.Black
                 )
             }
-            //Creamos el drop menu por que tenemos varias opciones dentro de MoreVert
+
             DropdownMenu(
-                expanded = showMenu, //Controla si el menu está expandido o no
-                //Un lambda que se ejecuta cuando el usuario cierra el menú
+                expanded = showMenu,
                 onDismissRequest = { showMenu = false },
-                //Modificador que establece el ancho del menú desplegable
                 Modifier.width(150.dp)
             ) {
-                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                DropdownMenuItem(
                     text = { Text(text = "Home") },
-                    onClick = { navController.navigate("MainCover") }, //No queremos que haga nada
-                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                    onClick = { navController.navigate("MainCover") },
+                    leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Home,
                             contentDescription = "home"
                         )
                     }
                 )
-                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                DropdownMenuItem(
                     text = { Text(text = "How calculate") },
-                    onClick = { navController.navigate("MainHowCalcFace") }, //No queremos que haga nada
-                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                    onClick = { navController.navigate("MainHowCalcFace") },
+                    leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.PlayArrow,
                             contentDescription = "video calculate face"
                         )
                     }
                 )
-                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                DropdownMenuItem(
                     text = { Text(text = "Calculate face") },
-                    onClick = { navController.navigate("Calculate your type face") }, //No queremos que haga nada
-                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                    onClick = { navController.navigate("Calculate your type face") },
+                    leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Create,
                             contentDescription = "Calculate face"
@@ -274,7 +268,7 @@ fun MyTopAppBarC(navController: NavController) {
     )
 }
 
-//La top de la cover principal
+//The top of the main cover
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -285,9 +279,8 @@ fun MyTopAppBarCM(
 ) {
     var modalNav by remember { mutableStateOf(false) }
     var modalNavIsOn by remember { mutableStateOf(false) }
-//La top bar siempre va en el Scaffol que lo pondremos en nuestra pantalla principal, no en el MAIN
+
     TopAppBar(
-        //Siempre pondremos el titulo primero y luego lo demas
         title = {
             Row(
                 Modifier.fillMaxWidth(),
@@ -305,7 +298,7 @@ fun MyTopAppBarCM(
         },
 
         colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
-        navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
+        navigationIcon = {
             IconButton(
                 onClick = {
                     modalNav = !modalNav
@@ -316,7 +309,7 @@ fun MyTopAppBarCM(
                         scope.launch { drawerState.close() }
                     }
                 }
-            ) { //En el onclick, en este caso no hará nada
+            ) {
                 Icon(
                     imageVector = Icons.Filled.ArrowForward,
                     contentDescription = "",
@@ -325,36 +318,29 @@ fun MyTopAppBarCM(
             }
         },
 
-        actions = { //Para poner los tres puntos o cualquier icono a la derecha
-            //Variable la cual la creamos por que en el MoreVert tenemos varias opciones
+        actions = {
             var showMenu by remember { mutableStateOf(false) }
-            //Haciendo click el lambda cambia de false a true o viceversa
+
             IconButton(onClick = { showMenu = !showMenu }) {
-//                Icon(
-//                    imageVector = Icons.Filled.MoreVert,
-//                    contentDescription = "Desplegable de dos opciones",
-//                    tint = Color.Black
-//                )
+
             }
-            //Creamos el drop menu por que tenemos varias opciones dentro de MoreVert
+
             DropdownMenu(
-                expanded = showMenu, //Controla si el menu está expandido o no
-                //Un lambda que se ejecuta cuando el usuario cierra el menú
+                expanded = showMenu,
                 onDismissRequest = { showMenu = false },
-                //Modificador que establece el ancho del menú desplegable
                 Modifier.width(150.dp)
             ) {
-                DropdownMenuItem( //Esta línea crea un elemento de menú desplegable
+                DropdownMenuItem(
                     text = { Text(text = "Compartir") },
-                    onClick = { /*TODO*/ }, //No queremos que haga nada
-                    leadingIcon = { //Un icono que se muestra antes del texto del elemento
+                    onClick = { /*TODO*/ },
+                    leadingIcon = {
                         Icon(
                             imageVector = Icons.Filled.Share,
                             contentDescription = "share"
                         )
                     }
                 )
-                DropdownMenuItem( //Por cada icono tenemos que hacer un DropdownMenu
+                DropdownMenuItem(
                     text = { Text(text = "Type faces") },
                     onClick = { /*TODO*/ },
                     leadingIcon = {
