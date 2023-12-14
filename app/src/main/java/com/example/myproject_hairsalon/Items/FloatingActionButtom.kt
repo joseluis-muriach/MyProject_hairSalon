@@ -42,16 +42,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 
 /*
-In this screen we can see a button that we will go to the screen "Type of faces"
+In this screen we can see the buttons that used in app
 * */
 @Composable
 fun FloatingButtom(navController: NavController) {
     FloatingActionButton(
         onClick = {
             navController.navigate("CoverTypeFace")
-            // Handle click action here
-            // For example, show a snackbar
-            // SnackbarHostState.current.showSnackbar("FAB Clicked")
         },
         modifier = Modifier
             .padding(16.dp)
@@ -69,11 +66,10 @@ fun FloatingButtom(navController: NavController) {
 
 @Composable
 fun FloatingButton(navController: NavHostController, url: String) {
-    //Variable en la cual guardaremos la URL del instagram:
+    //In this variable we save the URL of the instagram account:
     val websiteUrl = "https://instagram.com/andrea.laslo?igshid=OGQ5ZDc2ODk2ZA=="
     val context = LocalContext.current
-
-    //Esta variable es necesaria para hacer un floating con borde de color
+    //This variable is needed to make a floating button with a colored border.
     val value by rememberInfiniteTransition(label = "").animateFloat(
         initialValue = 20f,
         targetValue = -20f,
@@ -94,7 +90,6 @@ fun FloatingButton(navController: NavHostController, url: String) {
                 durationMillis = 1000,
                 easing = LinearEasing
             ),
-            //repeatMode = RepeatMode.Reverse
         ), label = ""
     )
 
@@ -115,7 +110,6 @@ fun FloatingButton(navController: NavHostController, url: String) {
             )
         )
     }
-    //Hasta aqui
 
     FloatingActionButton(
         onClick = {
@@ -130,9 +124,9 @@ fun FloatingButton(navController: NavHostController, url: String) {
                         gradientBrush, style = Stroke(width = 20.dp.value)
                     )
                 }
-            },//Hasta aquí
+            },
         containerColor = Color(0xFFF3DFF8),
-        //Hacemos el floating redondo
+        //Make rounded floating
         shape = CircleShape
     ) {
         Icon(
@@ -142,12 +136,12 @@ fun FloatingButton(navController: NavHostController, url: String) {
             modifier = Modifier
                 .size(25.dp)
                 .graphicsLayer(
-                    transformOrigin = TransformOrigin(
+                    transformOrigin =
+                    TransformOrigin(
                         pivotFractionX = 0.5f,
                         pivotFractionY = 0.5f
                     ),
-                    rotationZ = value
-                )
+                    rotationZ = value)
         )
     }
 }
@@ -163,9 +157,6 @@ fun FloatingActionRollBack(navController: NavController) {
     FloatingActionButton(
         onClick = {
             navController.navigate("Types faces")
-            // Handle click action here
-            // For example, show a snackbar
-            // SnackbarHostState.current.showSnackbar("FAB Clicked")
         },
         modifier = Modifier
             .padding(16.dp),

@@ -51,9 +51,9 @@ In this screen we can see how to create the top app bar (There are four top app 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyTopAppBar(navController: NavController) {
-//La top bar siempre va en el Scaffol que lo pondremos en nuestra pantalla principal, no en el MAIN
+    //The top app bar always inside of scaffol
     TopAppBar(
-        //Siempre pondremos el titulo primero y luego lo demas
+        //Allways first the title
         title = {
             Row(
                 Modifier.fillMaxWidth(),
@@ -69,7 +69,7 @@ fun MyTopAppBar(navController: NavController) {
             }
         },
         colors = TopAppBarDefaults.mediumTopAppBarColors(containerColor = Color(0xFFF3DFF8)),
-        navigationIcon = { //Aquí pondremos el botton que queramos que haga la acción
+        navigationIcon = { //Buttom that make the action
             IconButton(onClick = { navController.navigate("MainCover") }) { //En el onclick, en este caso no hará nada
                 Icon(
                     imageVector = Icons.Filled.ArrowBack,

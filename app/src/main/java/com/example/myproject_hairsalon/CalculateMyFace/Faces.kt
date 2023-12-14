@@ -1,7 +1,7 @@
 package com.example.myproject_hairsalon.CalculateMyFace
 
 /*
-Here, in this windows, we are going to make a function that calculate the type of face of the user
+Here, in this class, we are going to make the functions that calculate the type of face of the user
 */
 
 data class Face(
@@ -13,30 +13,29 @@ data class Face(
 ) {
     companion object {
         fun Faces(face: Face): String {
-
             val result: String = when {
-                esAlargado(face) -> {
+                isLong(face) -> {
                     "Your face type is LONG"
                 }
-                esRectangular(face) -> {
+                isRectangular(face) -> {
                     "Your face type is RECTANGULAR"
                 }
-                esCuadrado(face) -> {
+                isSquare(face) -> {
                     "Your face type is SQUARE"
                 }
-                esTriangular(face) -> {
+                isTriangular(face) -> {
                     "Your face type is TRIANGULAR"
                 }
-                esCorazon(face) -> {
+                isTriangle(face) -> {
                     "Your face type is HEART"
                 }
-                esTriangularInvert(face) -> {
+                isInvertTriangle(face) -> {
                     "Your face type is 'INVERTED TRIANGLE'"
                 }
-                esDiamante(face) -> {
+                isDiamond(face) -> {
                     "Your face type is DIAMOND"
                 }
-                esRedondo(face) -> {
+                isRound(face) -> {
                     "Your face type is ROUND"
                 }
                 else -> {
@@ -48,7 +47,7 @@ data class Face(
     }
 }
 
-fun esAlargado(
+fun isLong(
     face: Face
 ): Boolean {
     val range = 0.6
@@ -63,7 +62,7 @@ fun esAlargado(
     return result
 }
 
-fun esRectangular( //"E" tiene que se mayor a 1/3 de "D" para que se cumpla esta condición
+fun isRectangular( //"E" tiene que se mayor a 1/3 de "D" para que se cumpla esta condición
     face: Face
 ): Boolean {
     val range = 0.6
@@ -81,7 +80,7 @@ fun esRectangular( //"E" tiene que se mayor a 1/3 de "D" para que se cumpla esta
     return result
 }
 
-fun esCuadrado( //Este deberia ser parecido a, b, c y d
+fun isSquare( //Este deberia ser parecido a, b, c y d
     face: Face
 ): Boolean {
     val range = 0.6
@@ -99,7 +98,7 @@ fun esCuadrado( //Este deberia ser parecido a, b, c y d
     return result
 }
 
-fun esTriangular(
+fun isTriangular(
     face: Face
 ): Boolean {
     var result = false
@@ -110,7 +109,7 @@ fun esTriangular(
     return result
 }
 
-fun esCorazon(
+fun isTriangle(
     face: Face
 ): Boolean {
     val range = 0.6
@@ -124,7 +123,7 @@ fun esCorazon(
     return result
 }
 
-fun esTriangularInvert(
+fun isInvertTriangle(
     face: Face
 ): Boolean {
     var result = false
@@ -135,7 +134,7 @@ fun esTriangularInvert(
     return result
 }
 
-fun esDiamante(
+fun isDiamond(
     face: Face
 ): Boolean {
     val range = 0.6
@@ -150,7 +149,7 @@ fun esDiamante(
 }
 
 
-fun esRedondo(
+fun isRound(
     face: Face
 ): Boolean {
     val range = 0.6
@@ -164,7 +163,7 @@ fun esRedondo(
     return result
 }
 
-
+//Is probably that use this function in a future
 /*fun esOvalado(face: Face): Boolean {
     val range = 0.6
     val minimumRangeA = face.pointA - range

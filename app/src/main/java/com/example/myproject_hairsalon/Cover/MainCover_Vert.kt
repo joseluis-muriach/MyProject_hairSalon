@@ -51,6 +51,9 @@ import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 import kotlinx.coroutines.launch
 
+/*
+In this screen we can see the cover
+*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

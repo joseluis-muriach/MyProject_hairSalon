@@ -55,6 +55,9 @@ import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 import kotlinx.coroutines.launch
 
+/*
+In this screen we can see the cover of the app but in landscape form
+*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -79,14 +82,6 @@ fun MainCoverLandScape(navController: NavHostController) {
                 ModalDrawerSheet(
                     Modifier.padding(top = it.calculateTopPadding())
                 ) {
-//                    Image(
-//                        painter = painterResource(id = R.drawable.portadapelu),
-//                        contentDescription = "Image portada",
-//                        modifier = Modifier
-//                            .fillMaxWidth()
-//                            .height(128.dp),
-//                        contentScale = ContentScale.Inside
-//                    )
 //
                     Spacer(modifier = Modifier.height(10.dp))
 
@@ -103,7 +98,6 @@ fun MainCoverLandScape(navController: NavHostController) {
                             onClick = {
                                 scope.launch { drawerState.close() }
                                 selectedItem.value = Pair(itemIcon, itemName)
-                                // Haz algo con el nombre personalizado (itemName) o ícono (itemIcon)
                                 navController.navigate(itemName)
                             }
                         )

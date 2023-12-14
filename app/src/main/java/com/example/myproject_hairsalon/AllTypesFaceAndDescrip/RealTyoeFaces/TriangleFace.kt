@@ -31,11 +31,14 @@ import com.example.myproject_hairsalon.Items.FloatingActionRollBack
 import com.example.myproject_hairsalon.R
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-/*TENGO QUE CAMBIAR LAS FOTOS*/
+/*
+In this screen we find the characteristics of the Square Face
+*/
 data class TriangleFace(
     @DrawableRes var picture: Int
 )
 
+//All photos in this class
 fun getTriangleFace(): List<TriangleFace> {
     return listOf(
         TriangleFace(
@@ -56,6 +59,7 @@ fun getTriangleFace(): List<TriangleFace> {
     )
 }
 
+//How we will see when click in
 @Composable
 fun TriangleFaceItem(TriangleFace: TriangleFace, onItemSelected: (TriangleFace) -> Unit) {
     Row(
@@ -89,11 +93,10 @@ fun LazyRowPhotoT(navController: NavHostController) {
                         TriangleFaceItem(
                             TriangleFace = TriangleFace
                         ) {
-                            if (selectedPicture == it) {
-                                // Si la imagen seleccionada es la misma, ocultarla
-                                selectedPicture = null
+                            selectedPicture = if (selectedPicture == it) { //If the picture is equal, hidden it
+                                null
                             } else {
-                                selectedPicture = it
+                                it
                             }
                         }
                     }
@@ -110,9 +113,9 @@ fun LazyRowPhotoT(navController: NavHostController) {
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.Center
                 ) {
-                    //La imagen que seleccione el usuario estara en esta variable
-                    selectedPicture?.let {//Si no es nulo el valor, se hace lo que va debajo
-                        //De lo que ha elegido el user, cogemos la foto
+                    //In this variable the photo will be saved when the user clicks on it
+                    selectedPicture?.let {//If the value is not null, we do the following
+                        //Take the user photo (when he clicked)
                         Image(
                             painter = painterResource(id = it.picture),
                             //Desripción (que esto da igual)

@@ -21,7 +21,9 @@ import com.example.myproject_hairsalon.AllTypesFaceAndDescrip.FaceTitleAndDescri
 import com.example.myproject_hairsalon.Items.MyTopAppBarC
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
-/*In vertical mode*/
+/*
+This class is the screen of "Type faces" where we can see the design.
+*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -29,8 +31,6 @@ fun AllTypesFaceAndDescrip(navController: NavController) {
     Scaffold(
         topBar = { MyTopAppBarC(navController) }
     ) {
-        //Aquí no ponemos nada para que el floating haga ese efecto de transparencia
-
         Column(
             Modifier.fillMaxSize(),
         ) {

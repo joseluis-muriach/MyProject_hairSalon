@@ -34,7 +34,9 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.text.input.KeyboardType
 import com.example.myproject_hairsalon.Items.MyTopAppBarB
-
+/*
+This class is where we will see the screen where we will calculate our face type.
+*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,7 +51,6 @@ fun CalculateMyFace(navController: NavController) {
     Scaffold(
         topBar = { MyTopAppBarB(navController) }
     ) {
-
         LazyColumn(
             modifier = Modifier.fillMaxSize(),
             contentPadding = PaddingValues(16.dp)
@@ -149,6 +150,7 @@ fun CalculateMyFace(navController: NavController) {
                 )
                 //End the OULINEDTEXT
 
+                //Button result of we can see the result of measurements
                 Row(
                     Modifier.fillMaxWidth()
                 ){
