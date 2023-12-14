@@ -20,6 +20,9 @@ import androidx.navigation.NavController
 import com.example.myproject_hairsalon.Items.MyTopAppBar
 import com.example.myproject_hairsalon.ui.theme.fontCourgette
 
+/*
+This class is the same as the previous one, but the design is for a landscape.
+*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

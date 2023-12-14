@@ -14,6 +14,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 
+/*
+In this class create the design of how will see the video (how it will see the user).
+*/
 @Composable
 fun VideoPlayer(
     videoUri: Uri

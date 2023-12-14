@@ -16,7 +16,9 @@ import androidx.compose.material3.Scaffold
 import com.example.myproject_hairsalon.Items.MyTopAppBar
 import com.example.myproject_hairsalon.WhatIsYourTypeFace.VideoCalculateTypeFace.Video
 
-
+/*
+This class is the screen where we can find the video of how calculate you type face
+*/
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
